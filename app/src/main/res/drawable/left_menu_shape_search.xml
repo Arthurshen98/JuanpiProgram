@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<shape xmlns:android="http://schemas.android.com/apk/res/android" >
+   
+    <!-- 圆角 -->
+    <corners android:radius="5dp"/>
+    <!-- 描边  宽度/颜色 -->
+    <stroke android:width="1dp" android:color="#222323"/>
+    <gradient android:centerColor="@color/left_menu_search_bg" android:startColor="@color/left_menu_search_bg"
+        android:endColor="@color/left_menu_search_bg"></gradient>
+    <!-- 渐变效果  起始颜色/结束颜色 /渐变的角度  ：只能是45的倍数，if 0 left to right  if 90 bottom to top-->
+<!--     <gradient android:startColor="#ff0000"  android:endColor="#0000ff" android:angle="90"/>
+ -->    
+</shape>
