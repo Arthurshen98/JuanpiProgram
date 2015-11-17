@@ -6,7 +6,7 @@
 
     <color name="juanpi_main" >#f8285c</color><!--卷皮主体色-->
     <color name="left_menu_bg">#232426</color><!--左菜单背景-->
-    <color name="left_menu_search_bg" >#1e1e1e</color><!--搜索背景-->
+    <color name="left_menu_search_bg" >#0e0e0e</color><!--搜索背景-->
     <color name="left_menu_text">#8a8889</color><!--menu字体色-->
 
     <color name="white">#ffffff</color> <!-- 白色 -->

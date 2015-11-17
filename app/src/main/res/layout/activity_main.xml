@@ -3,20 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools" android:id="@+id/drawer_layout"
     android:layout_width="match_parent" android:layout_height="match_parent"
-    android:fitsSystemWindows="true" tools:openDrawer="start">
+    android:fitsSystemWindows="true" tools:openDrawer="start"
+    >
 
     <include layout="@layout/app_bar_main" android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/include_left_menu_bar"/>
+        android:id="@+id/include_left_menu_bar"
+        />
 
     <android.support.design.widget.NavigationView android:id="@+id/nav_view"
         android:layout_width="wrap_content" android:layout_height="match_parent"
         android:layout_gravity="start" android:fitsSystemWindows="true"
         app:headerLayout="@layout/nav_header_main"
+        android:background="@color/left_menu_bg"
         >
         <include layout="@layout/letf_menu_item" android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginTop="55dp"
+            android:layout_marginTop="77dp"
             />
         <FrameLayout
             android:layout_width="match_parent"
@@ -34,10 +37,11 @@
                     android:layout_height="match_parent"
                     android:text="个人中心"
                     android:textColor="@color/left_menu_text"
-                    android:background="@color/left_menu_bg"
+                    android:background="@drawable/left_menu_bottom_selector"
                     android:drawableTop="@mipmap/left_menu_user"
                     android:id="@+id/button_left_menu_person"
-
+                    android:paddingTop="10dp"
+                    android:onClick="toPersonCenter"
                     />
 
                 <TextView
@@ -55,10 +59,12 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:text="关于卷皮"
+                    android:onClick="toAboutJuanpi"
                     android:textColor="@color/left_menu_text"
-                    android:background="@color/left_menu_bg"
+                    android:background="@drawable/left_menu_bottom_selector"
                     android:drawableTop="@mipmap/left_menu_about"
                     android:id="@+id/button_left_menu_about"
+                    android:paddingTop="10dp"
                     />
 
                 <TextView
@@ -76,10 +82,12 @@
                     android:layout_weight="1"
                     android:layout_height="match_parent"
                     android:text="客服中心"
+                    android:onClick="toCallCenter"
                     android:textColor="@color/left_menu_text"
-                    android:background="@color/left_menu_bg"
+                    android:background="@drawable/left_menu_bottom_selector"
                     android:drawableTop="@mipmap/left_menu_call_center"
                     android:id="@+id/button_left_menu_call"
+                    android:paddingTop="10dp"
                     />
 
             </LinearLayout>

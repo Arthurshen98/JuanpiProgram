@@ -4,13 +4,15 @@
     android:layout_height="70dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark" android:orientation="vertical"
     android:gravity="center_vertical"
-    android:background="@color/left_menu_bg">
+    android:background="@color/left_menu_bg"
+    >
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="17dp"
-        android:background="@drawable/left_menu_shape_search">
+        android:background="@drawable/left_menu_shape_search"
+        android:id="@+id/relativeLayout_left_menu_search">
 
 
         <LinearLayout
@@ -19,6 +21,7 @@
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
             android:layout_centerVertical="true"
+
             >
             <ImageView
                 android:layout_width="wrap_content"
