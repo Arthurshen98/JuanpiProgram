@@ -8,7 +8,8 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
-        android:layout_height="50dp">
+        android:layout_height="60dp"
+        android:id="@+id/linearLayout2">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -17,24 +18,77 @@
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_marginTop="9dp"
-                android:layout_marginBottom="9dp"
-                android:layout_marginLeft="15dp"
-                android:layout_marginRight="60dp"
-                android:id="@+id/relativeLayout_search">
+                android:layout_marginTop="14dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="63dp"
+                android:id="@+id/relativeLayout_search"
+                 android:background="@drawable/search_relative_shape">
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView_delect_text"
+                    android:src="@mipmap/login_clear_account"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageView15"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentLeft="true"
+                    android:layout_alignParentStart="true"
+                    android:src="@mipmap/search_icon"
+                    android:layout_marginLeft="3dp"/>
+
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:id="@+id/editText_search"
+                    android:layout_centerVertical="true"
+                    android:layout_toRightOf="@+id/imageView15"
+                    android:layout_toEndOf="@+id/imageView15"
+                    android:layout_marginLeft="5dp"
+                    android:layout_marginRight="15dp"
+                    android:hint="输入商品名"
+                    android:textSize="13dp"
+                    android:textColorHint="@color/left_menu_text"
+                    android:background="@drawable/search_editext"/>
             </RelativeLayout>
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="搜索"
-                android:id="@+id/button"
+                android:id="@+id/text_search"
                 android:textSize="16sp"
-                android:layout_marginRight="13dp"
+                android:layout_marginRight="17dp"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="取消"
+                android:id="@+id/text_search_cancal"
+                android:textSize="16sp"
+                android:layout_marginRight="17dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true" />
         </RelativeLayout>
 
 
     </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/linearLayout2"
+        android:id="@+id/relativeLayout_search_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"/>
+
+
 </RelativeLayout>

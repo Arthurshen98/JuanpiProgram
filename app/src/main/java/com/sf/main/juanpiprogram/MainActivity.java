@@ -37,12 +37,7 @@ public class MainActivity extends AppCompatActivity
      */
     private RelativeLayout relativeSearch;
 
-    /**
-     *
-     * fragment事物
-     */
-    private FragmentManager fmanager;
-    private FragmentTransaction ftransaction;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

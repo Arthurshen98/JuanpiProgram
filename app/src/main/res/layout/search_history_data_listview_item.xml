@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="horizontal" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="43dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/imageView14"
+            android:src="@mipmap/search_icon"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="20dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="New Text"
+            android:id="@+id/textView_search_his_data_listview"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@+id/imageView14"
+            android:layout_toEndOf="@+id/imageView14"
+            android:layout_marginLeft="20dp"
+            android:textColor="@color/left_menu_text"/>
+    </RelativeLayout>
+</LinearLayout>
