@@ -1,16 +1,13 @@
 package com.sf.main.juanpiprogram.sf.activity;
 
-import android.app.Activity;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
 import android.view.Window;
-import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -18,13 +15,10 @@ import android.widget.TextView;
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.exception.DbException;
 import com.sf.main.juanpiprogram.R;
-import com.sf.main.juanpiprogram.sf.Utils.DbHelper;
+import com.sf.main.juanpiprogram.sf.utils.DbHelper;
 import com.sf.main.juanpiprogram.sf.entities.SearchHistoryData;
 import com.sf.main.juanpiprogram.sf.fragment.SearchDateFragment;
 import com.sf.main.juanpiprogram.sf.fragment.SearchHistoryFragment;
-
-import java.util.ArrayList;
-import java.util.List;
 
 public class SearchGoodsActivity extends FragmentActivity {
 
@@ -37,7 +31,7 @@ public class SearchGoodsActivity extends FragmentActivity {
 
     /**
      *
-     * @param 删除文本图标+edittext+textview
+     *  删除文本图标+edittext+textview
      */
     private ImageView deleteTextIcon;
     private EditText searchContent;
@@ -144,7 +138,7 @@ public class SearchGoodsActivity extends FragmentActivity {
 
                     String str = searchContent.getText().toString();
                     if (str.equals("")) {
-
+                         return;
                     } else {
                         utils.saveOrUpdate(new SearchHistoryData(str));
                     }

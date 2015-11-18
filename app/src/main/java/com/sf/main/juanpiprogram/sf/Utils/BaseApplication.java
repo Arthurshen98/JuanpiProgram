@@ -1,4 +1,4 @@
-package com.sf.main.juanpiprogram.sf.Utils;
+package com.sf.main.juanpiprogram.sf.utils;
 
 import android.app.Activity;
 import android.app.Application;

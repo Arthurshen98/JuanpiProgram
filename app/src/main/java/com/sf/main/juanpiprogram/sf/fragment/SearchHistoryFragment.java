@@ -10,17 +10,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.exception.DbException;
 import com.sf.main.juanpiprogram.R;
 import com.sf.main.juanpiprogram.sf.adapter.SearchListViewAdapter;
-import com.sf.main.juanpiprogram.sf.Utils.BaseApplication;
-import com.sf.main.juanpiprogram.sf.Utils.DbHelper;
+import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
+import com.sf.main.juanpiprogram.sf.utils.DbHelper;
 import com.sf.main.juanpiprogram.sf.entities.SearchHistoryData;
 
 import java.util.List;
@@ -36,7 +33,7 @@ public class SearchHistoryFragment extends Fragment {
 
     /**
      *
-     * @param 清除数据按钮
+     *  清除数据按钮
      */
     private Button clearButton;
     private SearchListViewAdapter searchAdapter;
@@ -83,8 +80,10 @@ public class SearchHistoryFragment extends Fragment {
                 } catch (DbException e) {
                     e.printStackTrace();
                 }
-                searchAdapter.notifyDataSetChanged();
+
+                list.clear();
                 initListViewData(view);
+                searchAdapter.notifyDataSetChanged();
             }
 
         });

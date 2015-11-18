@@ -7,13 +7,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.lidroid.xutils.DbUtils;
 import com.sf.main.juanpiprogram.R;
-import com.sf.main.juanpiprogram.sf.Utils.BaseApplication;
-import com.sf.main.juanpiprogram.sf.Utils.DbHelper;
 import com.sf.main.juanpiprogram.sf.entities.SearchHistoryData;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
