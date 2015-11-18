@@ -18,6 +18,7 @@
     <color name="login_btn">#33868686</color>
     <color name="login_btn_line">#c6c6c6</color>
     <color name="bg_allshow">#11999999</color>
+    <color name="juanpi_main_bottom">#bbf8285c</color>
 
     <color name="white">#ffffff</color> <!-- 白色 -->
     <color name="ivory">#fffff0</color> <!-- 象牙色 -->
