@@ -46,6 +46,9 @@
                 android:layout_alignRight="@+id/imageView28"
                 android:layout_marginRight="60dp"
                 android:layout_marginLeft="30dp"
+                android:hint="用户名/手机号"
+                android:textSize="14sp"
+                android:textColor="@color/left_menu_text"
                 android:background="@drawable/login_kuang_edittext_shape"/>
 
             <ImageView
@@ -102,6 +105,9 @@
                 android:layout_alignRight="@+id/imageView30"
                 android:layout_marginRight="60dp"
                 android:layout_marginLeft="30dp"
+                android:hint="请输入密码"
+                android:textSize="14sp"
+                android:textColor="@color/left_menu_text"
                 android:background="@drawable/login_kuang_edittext_shape"
                 />
 
