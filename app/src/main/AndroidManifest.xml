@@ -61,6 +61,10 @@
         </activity>
         <activity android:name=".sf.activity.AboutJuanpipsActivity" >
         </activity>
+        <activity android:name=".sf.activity.LoginActivity" >
+        </activity>
+        <activity android:name=".sf.activity.RegisterActivity" >
+        </activity>
     </application>
 
 </manifest>

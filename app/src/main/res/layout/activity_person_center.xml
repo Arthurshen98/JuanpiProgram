@@ -45,95 +45,96 @@
         android:layout_below="@+id/linearLayout"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
-        android:id="@+id/linearLayout3">
+        android:id="@+id/linearLayout_person_center">
 
     </LinearLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_below="@+id/linearLayout3"
-        android:id="@+id/relativeLayout">
-        <LinearLayout
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white">
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="代付款"
-
-                android:textColor="@color/all_text"
-                android:background="@drawable/button_selector"
-                android:drawableTop="@mipmap/my_nopay"
-                android:id="@+id/button_left_menu_person"
-                android:paddingTop="6dp"
-                android:textSize="13dp"
-                android:paddingBottom="5dp"
-                android:onClick="toNoPay"
-                />
-
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:id="@+id/textView2"
-                android:background="@color/left_menu_text"
-
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="待收货"
-                android:onClick="toLogistic"
-                android:textSize="13dp"
-                android:paddingBottom="5dp"
-                android:textColor="@color/all_text"
-                android:background="@drawable/button_selector"
-                android:drawableTop="@mipmap/my_logistic"
-                android:id="@+id/button_left_menu_about"
-                android:paddingTop="6dp"
-                />
-
-            <TextView
-                android:layout_width="1dp"
-                android:layout_height="match_parent"
-                android:text="New Text"
-                android:id="@+id/textView3"
-                android:background="@color/left_menu_text"
-                android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
-                />
-
-            <Button
-                android:layout_width="0dp"
-                android:layout_weight="1"
-                android:layout_height="match_parent"
-                android:text="全部订单"
-                android:onClick="toAllOrder"
-                android:textSize="13dp"
-                android:paddingBottom="5dp"
-                android:textColor="@color/all_text"
-                android:background="@drawable/button_selector"
-                android:drawableTop="@mipmap/my_order"
-                android:id="@+id/button_left_menu_call"
-                android:paddingTop="6dp"
-                />
-
-        </LinearLayout>
-    </RelativeLayout>
 
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/relativeLayout"
-        android:background="@color/personalmenubg">
+        android:background="@color/personalmenubg"
+        android:layout_below="@+id/linearLayout_person_center">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_below="@+id/linearLayout3"
+            android:id="@+id/relativeLayout">
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="54dp"
+                android:background="@color/white">
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="代付款"
+
+                    android:textColor="@color/all_text"
+                    android:background="@drawable/button_selector"
+                    android:drawableTop="@mipmap/my_nopay"
+                    android:id="@+id/button_left_menu_person"
+                    android:paddingTop="6dp"
+                    android:textSize="13dp"
+                    android:paddingBottom="5dp"
+                    android:onClick="toNoPay"
+                    />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:id="@+id/textView2"
+                    android:background="@color/left_menu_text"
+
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="待收货"
+                    android:onClick="toLogistic"
+                    android:textSize="13dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/all_text"
+                    android:background="@drawable/button_selector"
+                    android:drawableTop="@mipmap/my_logistic"
+                    android:id="@+id/button_left_menu_about"
+                    android:paddingTop="6dp"
+                    />
+
+                <TextView
+                    android:layout_width="1dp"
+                    android:layout_height="match_parent"
+                    android:text="New Text"
+                    android:id="@+id/textView3"
+                    android:background="@color/left_menu_text"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    />
+
+                <Button
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="match_parent"
+                    android:text="全部订单"
+                    android:onClick="toAllOrder"
+                    android:textSize="13dp"
+                    android:paddingBottom="5dp"
+                    android:textColor="@color/all_text"
+                    android:background="@drawable/button_selector"
+                    android:drawableTop="@mipmap/my_order"
+                    android:id="@+id/button_left_menu_call"
+                    android:paddingTop="6dp"
+                    />
+
+            </LinearLayout>
+        </RelativeLayout>
 
         <LinearLayout
         android:layout_width="match_parent"
@@ -168,7 +169,7 @@
                         android:text="我的收藏"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView1"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView1"
                         android:layout_toEndOf="@+id/imageView1" />
@@ -222,7 +223,7 @@
                         android:text="我的优惠券"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView45"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView3"
                         android:layout_toEndOf="@+id/imageView3" />
@@ -276,7 +277,7 @@
                         android:text="浏览记录"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView8"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView4"
                         android:layout_toEndOf="@+id/imageView4" />
@@ -330,7 +331,7 @@
                         android:text="我的积分"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView8"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView6"
                         android:layout_toEndOf="@+id/imageView6" />
@@ -382,7 +383,7 @@
                         android:text="我的售后"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView24"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView20"
                         android:layout_toEndOf="@+id/imageView20" />
@@ -436,7 +437,7 @@
                         android:text="客服中心"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView26"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView22"
                         android:layout_toEndOf="@+id/imageView22" />
@@ -490,7 +491,7 @@
                         android:text="关于卷皮"
                         android:textColor="@color/all_text"
                         android:id="@+id/textView28"
-                        android:layout_marginLeft="30dp"
+                        android:layout_marginLeft="15dp"
                         android:layout_centerVertical="true"
                         android:layout_toRightOf="@+id/imageView24"
                         android:layout_toEndOf="@+id/imageView24" />

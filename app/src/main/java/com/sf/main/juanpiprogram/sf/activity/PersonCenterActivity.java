@@ -2,6 +2,9 @@ package com.sf.main.juanpiprogram.sf.activity;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -9,22 +12,68 @@ import android.view.Window;
 import android.widget.RelativeLayout;
 
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.fragment.PersonAfterLoginFragment;
+import com.sf.main.juanpiprogram.sf.fragment.PersonBeforeLoginFragment;
+import com.sf.main.juanpiprogram.sf.fragment.SearchHistoryFragment;
 
 import java.security.PrivateKey;
 
-public class PersonCenterActivity extends Activity implements View.OnClickListener {
+public class PersonCenterActivity extends FragmentActivity implements View.OnClickListener {
 
     private RelativeLayout relativeLayout1,relativeLayout2,relativeLayout3,relativeLayout4,relativeLayout5,relativeLayout6,relativeLayout7;
+    /**
+     *
+     * fragment事物
+     */
+    private FragmentManager fmanager;
+    private FragmentTransaction ftransaction;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉actionBar
         setContentView(R.layout.activity_person_center);
+        //个人中心背景
+        personBg();
         //个人中心的菜单项
         personCenterMenu();
 
     }
 
+    /**
+     * 个人中心背景
+     */
+    private void personBg() {
+
+        boolean flag = false;
+        //判断用户是否登录
+        if (!flag) {
+            //在用户未登录状态的背景
+            noLoginBg();
+        }else {
+            //用户登录后的背景
+            alreadLoginBg();
+        }
+
+
+    }
+
+    //在用户未登录状态的背景
+    private void noLoginBg() {
+        fmanager = getSupportFragmentManager();
+        ftransaction = fmanager.beginTransaction();
+        PersonBeforeLoginFragment personbeforeFragment = new PersonBeforeLoginFragment();
+        ftransaction.replace(R.id.linearLayout_person_center, personbeforeFragment);
+        ftransaction.commit();
+    }
+
+    //用户登录后的背景
+    private void alreadLoginBg() {
+        fmanager = getSupportFragmentManager();
+        ftransaction = fmanager.beginTransaction();
+        PersonAfterLoginFragment personafterFragment = new PersonAfterLoginFragment();
+        ftransaction.replace(R.id.linearLayout_person_center, personafterFragment);
+        ftransaction.commit();
+    }
     /**
      * 第二，第三个人中心的菜单项
      */

@@ -52,7 +52,6 @@ public class SearchGoodsActivity extends FragmentActivity {
         onclickSousuoChangeFragment();
 
 
-
     }
 
 
