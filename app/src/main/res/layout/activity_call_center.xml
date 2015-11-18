@@ -12,14 +12,14 @@
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@color/juanpi_main">
+            android:background="@color/white">
 
 
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView7"
-                android:background="@drawable/top_back_icon_selector"
+                android:id="@+id/imageView13"
+                android:background="@drawable/top_back_icon_black_selector"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="13dp"
                 android:onClick="toFinish"/>
@@ -28,12 +28,11 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="客服中心"
-                android:textColor="@color/white"
+                android:textColor="@color/all_text"
                 android:textSize="19sp"
-                android:id="@+id/textView17"
+                android:id="@+id/textView23"
                 android:layout_centerHorizontal="true"
-                android:layout_centerVertical="true"
-                />
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
 
     </LinearLayout>

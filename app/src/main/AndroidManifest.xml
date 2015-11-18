@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.sf.main.juanpiprogram" >
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
+        android:name=".sf.utils.BaseApplication"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
-        android:name=".sf.utils.BaseApplication"
         android:supportsRtl="true"
         android:theme="@style/AppTheme" >
         <activity
@@ -38,6 +40,26 @@
         <activity android:name=".sf.activity.MeishiActivity" >
         </activity>
         <activity android:name=".sf.activity.MeizhuangActivity" >
+        </activity>
+        <activity android:name=".sf.activity.NoPayActivity" >
+        </activity>
+        <activity android:name=".sf.activity.LogisticActivity" >
+        </activity>
+        <activity android:name=".sf.activity.AllOrderActivity" >
+        </activity>
+        <activity android:name=".sf.activity.MyCollectActivity" >
+        </activity>
+        <activity android:name=".sf.activity.MyCouponActivity" >
+        </activity>
+        <activity android:name=".sf.activity.ScanRecordActivity" >
+        </activity>
+        <activity android:name=".sf.activity.MyIntegralActivity" >
+        </activity>
+        <activity android:name=".sf.activity.MyafterserviceActivity" >
+        </activity>
+        <activity android:name=".sf.activity.CallCenterpsActivity" >
+        </activity>
+        <activity android:name=".sf.activity.AboutJuanpipsActivity" >
         </activity>
     </application>
 

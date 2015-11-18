@@ -20,11 +20,10 @@ public class BaseApplication extends Application {
      * BaseApplication.getInstance().exit();
      */
     private static BaseApplication instance;
-
+    private static Context context;
     private List<Activity> activityList = new LinkedList<Activity>();
 
     public BaseApplication(){}
-
     // 单例模式获取唯一的MyApplication实例
     public static BaseApplication getIntance() {
         if (instance == null) {
@@ -33,7 +32,7 @@ public class BaseApplication extends Application {
         return instance;
     }
 
-    private static Context context;
+
 
 
     //初始化程序

@@ -90,7 +90,7 @@
                 android:layout_weight="1"
                 android:layout_height="match_parent"
                 android:text="待收货"
-                android:onClick="tologistic"
+                android:onClick="toLogistic"
                 android:textSize="13dp"
                 android:paddingBottom="5dp"
                 android:textColor="@color/all_text"
@@ -366,7 +366,7 @@
                     android:layout_height="match_parent"
                     android:onClick="toMyafterservice"
                     android:background="@drawable/button_selector"
-                    android:id="@+id/relativeLayout2" >
+                    android:id="@+id/relativeLayout_person_menu_item5" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -420,7 +420,7 @@
                     android:layout_height="match_parent"
                     android:onClick="toCallCenterps"
                     android:background="@drawable/button_selector"
-                    android:id="@+id/relativeLayout3" >
+                    android:id="@+id/relativeLayout_person_menu_item6" >
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -474,7 +474,7 @@
                     android:layout_height="match_parent"
                     android:onClick="toAboutJuanpips"
                     android:background="@drawable/button_selector"
-                    android:id="@+id/relativeLayout4" >
+                    android:id="@+id/relativeLayout_person_menu_item7" >
 
                     <ImageView
                         android:layout_width="wrap_content"
