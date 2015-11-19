@@ -161,6 +161,7 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
 
             case R.id.text_onclick_getcheckNum:
                 text_onclick_getcheckNum.setVisibility(View.GONE);
+                text_onclick_countdown.setVisibility(View.VISIBLE);
                 countdown();
                 break;
             case R.id.text_onclick_reget:
@@ -197,19 +198,21 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
         //处理消息
         public void handleMessage(Message msg) {
             int count = msg.arg1;
-            text_onclick_countdown.setText(count+"");
+            text_onclick_countdown.setText(count+"s");
         };
     };
 
+   private  int count = 0;
     public  void  countdown(){
+        count = 61;
         new Thread(new Runnable() {
 
             @Override
             public void run() {
-                int count = 0;
+
                 while (true) {
-                    if(count < 60){
-                        count++;
+                    if(count > 0){
+                        count--;
                         Message message = Message.obtain();
                         message.arg1 = count;
                         handler.sendMessage(message);
@@ -218,13 +221,18 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
                         } catch (InterruptedException e) {
                             e.printStackTrace();
                         }
-                    }else{
-                        //倒计时之后重新发送
-                        text_onclick_countdown.setVisibility(View.GONE);
-                        text_onclick_reget.setVisibility(View.VISIBLE);
                     }
                 }
             }
         }).start();
+
+        if(count == 59){
+            //倒计时之后重新发送
+            text_onclick_countdown.setVisibility(View.GONE);
+            text_onclick_reget.setVisibility(View.VISIBLE);
     }
+
+    }
+
+
 }
