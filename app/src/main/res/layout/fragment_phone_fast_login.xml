@@ -1,6 +1,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/bg_allshow"
     tools:context="com.sf.main.juanpiprogram.sf.fragment.PhoneFastLoginFragment">
 
     <LinearLayout
@@ -11,7 +12,7 @@
         android:layout_marginLeft="12dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="@drawable/login_cricle_kuang"
+        android:background="@drawable/login_cricle_kuang_shape"
         android:id="@+id/linearLayout5">
 
         <RelativeLayout
@@ -38,10 +39,10 @@
             <EditText
                 android:layout_width="match_parent"
                 android:layout_height="35dp"
-                android:id="@+id/editText"
+                android:id="@+id/editText_input_phoneNum"
                 android:layout_alignLeft="@+id/imageView26"
                 android:layout_centerVertical="true"
-                android:layout_alignRight="@+id/imageView28"
+                android:layout_alignRight="@+id/imageView_checkNum_clear"
                 android:layout_marginRight="60dp"
                 android:hint="请输入手机号"
                 android:textSize="14sp"
@@ -52,7 +53,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView28"
+                android:id="@+id/imageView_phoneNum"
                 android:src="@mipmap/login_open_popup"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -61,7 +62,7 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView31"
+                android:id="@+id/imageView_checkNum_clear"
                 android:src="@mipmap/login_clear_account"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
@@ -87,7 +88,7 @@
             <EditText
                 android:layout_width="180dp"
                 android:layout_height="35dp"
-                android:id="@+id/editText"
+                android:id="@+id/editText_phone_checkNum"
                 android:layout_alignLeft="@+id/imageView27"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="60dp"
@@ -101,21 +102,43 @@
             <ImageView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/imageView31"
+                android:id="@+id/imageView_phone_password_clear"
                 android:src="@mipmap/login_clear_account"
-                android:layout_alignTop="@+id/imageView27"
-                android:layout_alignRight="@+id/editText"
-                android:layout_alignEnd="@+id/editText" />
+                android:layout_alignLeft="@+id/editText_phone_checkNum"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="150dp"
+                />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="获取验证码"
-                android:id="@+id/textView37"
+            <RelativeLayout
+                android:layout_width="110dp"
+                android:layout_height="match_parent"
+                android:id="@+id/relative_getCheckedNum"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:layout_marginRight="22dp"
-                  />
+                android:background="@drawable/button_selector"
+                  >
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="获取验证码"
+                    android:id="@+id/text_onclick_getcheckNum"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="60s"
+                    android:id="@+id/text_onclick_countdown"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="重新获取"
+                    android:id="@+id/text_onclick_reget"
+                    android:layout_centerVertical="true"
+                    android:layout_centerHorizontal="true"/>
+            </RelativeLayout>
 
             <TextView
                 android:layout_width="0.3dp"
@@ -123,9 +146,9 @@
                 android:background="@color/login_btn_line"
                 android:id="@+id/textView38"
                 android:layout_alignParentTop="true"
-                android:layout_marginRight="22dp"
-                android:layout_toLeftOf="@+id/textView37"
-                android:layout_toStartOf="@+id/textView37" />
+                android:layout_marginRight="0dp"
+                android:layout_toLeftOf="@+id/relative_getCheckedNum"
+                android:layout_toStartOf="@+id/relative_getCheckedNum" />
         </RelativeLayout>
     </LinearLayout>
 
@@ -135,14 +158,15 @@
         android:layout_below="@+id/linearLayout5"
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
-        android:background="@drawable/login_cricle_kuang"
+        android:background="@drawable/login_cricle_kuang_shape"
         android:id="@+id/relativeLayout2">
 
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/login_selector">
+            android:background="@drawable/login_btn_selector"
+            android:id="@+id/relative_phonefast_login_btn">
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
