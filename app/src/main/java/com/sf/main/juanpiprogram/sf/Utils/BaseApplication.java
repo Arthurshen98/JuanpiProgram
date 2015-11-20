@@ -7,6 +7,8 @@ import android.content.Context;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.smssdk.SMSSDK;
+
 /**
  * 全局application，为什么要用application，主要是因为这就像一个session，
  * 用于临时保存各种传值，服务器url，如果用数据库或者其他的操作来保存这些
@@ -40,13 +42,17 @@ public class BaseApplication extends Application {
     public void onCreate() {
         super.onCreate();
         context=getApplicationContext();
+        //初始化db
         DbHelper.init(this);
+
     }
     //返回Context的对象
     public static Context getContext()
     {
         return context;
     }
+
+
    /* //返回Context的对象
     public static Context getContext(){
         return instance.getApplicationContext(); //今后使用的时候只需要BaseApplication.getContext();即可得到context,
@@ -65,6 +71,9 @@ public class BaseApplication extends Application {
         System.exit(0);
     }
 
+    /**
+     *
+     */
 
 
 }

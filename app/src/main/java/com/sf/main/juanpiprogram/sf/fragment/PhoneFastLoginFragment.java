@@ -1,10 +1,12 @@
 package com.sf.main.juanpiprogram.sf.fragment;
 
 
+import android.os.Bundle;
+import android.os.Handler;
 import android.os.Message;
 import android.support.v4.app.Fragment;
-import android.os.Bundle;
 import android.text.Editable;
+import android.text.TextUtils;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,22 +15,25 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
 
-import android.os.Handler;
+import cn.smssdk.EventHandler;
+import cn.smssdk.SMSSDK;
 
 /**
  * A simple {@link Fragment} subclass.
  */
 public class PhoneFastLoginFragment extends Fragment implements View.OnClickListener {
 
-
     private ImageView imageView_checkNum_clear,imageView_phone_password_clear;
     private EditText editText_input_phoneNum,editText_phone_checkNum;
     //登录+获取验证码框
     private RelativeLayout relative_phonefast_login_btn,relative_getCheckedNum;
     private TextView text_onclick_getcheckNum,text_onclick_reget,text_onclick_countdown;
+
 
     public PhoneFastLoginFragment() {
         // Required empty public constructor
@@ -139,6 +144,12 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
         //隐藏两个控件
         text_onclick_countdown.setVisibility(View.GONE);
         text_onclick_reget.setVisibility(View.GONE);
+
+        //启动SMS
+        SMSSDK.initSDK(BaseApplication.getContext(), "c21ce1d85935", "4824fa95b122eba98158d4cfb02588ab");
+        SMSSDK.registerEventHandler(eh);
+
+
     }
 
     //点击监听
@@ -154,22 +165,43 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
                 clearCheckNum();
                 break;
             case R.id.relative_phonefast_login_btn:
+                //登录的时候验证验证码
+                isTureCheckNum();
                 break;
 
             case R.id.relative_getCheckedNum:
                 break;
 
             case R.id.text_onclick_getcheckNum:
-                text_onclick_getcheckNum.setVisibility(View.GONE);
-                text_onclick_countdown.setVisibility(View.VISIBLE);
-                //执行倒计时
-                countdown();
-                //给用户发送短信
-                toSendSMS();
+
+                if (!editText_input_phoneNum.getText().toString().equals("")&& editText_input_phoneNum.getText().toString().length() == 11) {
+                    text_onclick_getcheckNum.setVisibility(View.GONE);
+                    text_onclick_countdown.setVisibility(View.VISIBLE);
+                    //给用户发送短信
+                    toSendSMS();
+                    //执行倒计时
+                    countdown();
+                }else{
+                    Toast.makeText(BaseApplication.getContext(), "手机号不能为空", Toast.LENGTH_SHORT).show();
+                    editText_input_phoneNum.requestFocus();
+                }
+
+
                 break;
             case R.id.text_onclick_reget:
-                //重新发送
-                countdown();
+                if (!editText_input_phoneNum.getText().toString().equals("") && editText_input_phoneNum.getText().toString().length() == 11) {
+                    //给用户发送短信
+                    toSendSMS();
+                    //重新发送
+                    countdown();
+                    text_onclick_reget.setVisibility(View.GONE);
+                    text_onclick_countdown.setVisibility(View.VISIBLE);
+                }else {
+                    Toast.makeText(BaseApplication.getContext(), "手机号不能为空", Toast.LENGTH_SHORT).show();
+                    editText_input_phoneNum.requestFocus();
+                }
+
+
                 break;
             case R.id.text_onclick_countdown:
                 break;
@@ -181,18 +213,87 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
      */
     private String phoneNum = null;
     private void toSendSMS() {
+        /*//打开注册页面
+        RegisterPage registerPage = new RegisterPage();
+        registerPage.setRegisterCallback(new EventHandler() {
+            public void afterEvent(int event, int result, Object data) {
+       // 解析注册结果
+                if (result == SMSSDK.RESULT_COMPLETE) {
+                    @SuppressWarnings("unchecked")
+                    HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
+                    String country = (String) phoneMap.get("country");
+                    String phone = (String) phoneMap.get("phone");
+
+            // 提交用户信息
+                 //   registerUser(country, phone);
+                }
+            }
+        });
+        registerPage.show(BaseApplication.getContext());*/
+
+
         //获取到用户手机号码
         phoneNum = editText_input_phoneNum.getText().toString();
+        if (!TextUtils.isEmpty(phoneNum)) {
+                SMSSDK.getVerificationCode("+86", phoneNum);
+                editText_phone_checkNum.requestFocus();
+        }
+        //((Button) view).setText("重新发送");
+    }
 
+    private  void isTureCheckNum(){
+        //获取到用户手机号码
+        phoneNum = editText_input_phoneNum.getText().toString();
+        //验证的验证码
+        String checkNum = editText_phone_checkNum.getText().toString();
+        if (!TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(checkNum)) {
+            SMSSDK.submitVerificationCode("+86", phoneNum, checkNum);
+            editText_phone_checkNum.requestFocus();
+        } else {
+            Toast.makeText(BaseApplication.getContext(), "验证码不能为空", Toast.LENGTH_SHORT).show();
+            editText_phone_checkNum.requestFocus();
+        }
     }
 
     /**
      * 判断验证码是否正确
      */
-    private  void isTureCheckNum(){
-        //发送的验证码
+    private EventHandler eh=new EventHandler(){
+        @Override
+        public void afterEvent(final int event, final int result, final Object data) {
+            getActivity().runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
 
-    }
+                    if (result == SMSSDK.RESULT_COMPLETE) {
+                        //回调完成
+                        if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                            //提交验证码成功
+                            Toast.makeText(BaseApplication.getContext(), "验证成功", Toast.LENGTH_SHORT).show();
+                        } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                            //获取验证码成功
+                            Toast.makeText(BaseApplication.getContext(), "验证码已发送", Toast.LENGTH_SHORT).show();
+                        } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+                            //返回支持发送验证码的国家列表
+                        }
+                    } else {
+                        ((Throwable) data).printStackTrace();
+                        //回调完成
+                        if (event == SMSSDK.EVENT_SUBMIT_VERIFICATION_CODE) {
+                            //提交验证码成功
+                            Toast.makeText(BaseApplication.getContext(), "验证失败", Toast.LENGTH_SHORT).show();
+                        } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
+                            //获取验证码成功
+                            Toast.makeText(getActivity(), "发送失败", Toast.LENGTH_SHORT).show();
+                        } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
+                            //返回支持发送验证码的国家列表
+                        }
+                    }
+                }
+            });
+        }
+    };
+
 
     /**
      * 清除电话号码
@@ -260,4 +361,9 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
     }
 
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        SMSSDK.unregisterAllEventHandler();
+    }
 }
