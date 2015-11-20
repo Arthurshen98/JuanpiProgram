@@ -2,7 +2,8 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.sf.main.juanpiprogram.sf.activity.RegisterActivity">
+    tools:context="com.sf.main.juanpiprogram.sf.activity.RegisterActivity"
+    android:background="@color/bg_allshow">
 
     <LinearLayout
         android:orientation="vertical"
@@ -47,7 +48,7 @@
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="120dp"
+        android:layout_height="240dp"
         android:layout_marginRight="12dp"
         android:layout_marginLeft="12dp"
         android:layout_marginTop="20dp"
@@ -55,6 +56,124 @@
         android:background="@drawable/login_cricle_kuang_shape"
         android:id="@+id/linearLayout5"
         android:layout_below="@+id/linearLayout_register_top">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:id="@+id/register_editText_username_login"
+                android:layout_alignLeft="@+id/imageView31"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/imageView32"
+                android:layout_marginRight="60dp"
+                android:layout_marginLeft="30dp"
+                android:hint="用户名/手机号"
+                android:textSize="14sp"
+                android:textColor="@color/left_menu_text"
+                android:background="@drawable/login_kuang_edittext_shape" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView31"
+                android:src="@mipmap/ic_user_name_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView32"
+                android:src="@mipmap/login_open_popup"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:id="@+id/textView33"
+                android:background="@color/personbottomLine"
+                android:layout_alignParentBottom="true" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/register_login_clear_account1"
+                android:src="@mipmap/login_clear_account"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="45dp" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:background="@color/white" >
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:id="@+id/register_editText_pass_login"
+                android:layout_alignLeft="@+id/imageView35"
+                android:layout_centerVertical="true"
+                android:layout_alignRight="@+id/imageView37"
+                android:layout_marginRight="60dp"
+                android:layout_marginLeft="30dp"
+                android:password="true"
+                android:hint="请输入密码"
+                android:textSize="14sp"
+                android:textColor="@color/left_menu_text"
+                android:background="@drawable/login_kuang_edittext_shape" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="0.6dp"
+                android:id="@+id/textView29"
+                android:background="@color/personbottomLine"
+                android:layout_alignParentBottom="true"/>
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView35"
+                android:src="@mipmap/ic_user_pass_icon"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="10dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView36"
+                android:src="@mipmap/eye_closed_icon"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/imageView37"
+                android:src="@mipmap/eye_open_icon"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="8dp" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/register_login_clear_account2"
+                android:src="@mipmap/login_clear_account"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="45dp"
+                android:layout_alignParentRight="true" />
+        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -109,6 +228,8 @@
                 android:layout_centerVertical="true"
                 android:layout_marginRight="45dp"
                 />
+
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -193,6 +314,7 @@
                 android:layout_toLeftOf="@+id/register_relative_getCheckedNum"
                 android:layout_toStartOf="@+id/register_relative_getCheckedNum" />
         </RelativeLayout>
+
     </LinearLayout>
 
     <RelativeLayout

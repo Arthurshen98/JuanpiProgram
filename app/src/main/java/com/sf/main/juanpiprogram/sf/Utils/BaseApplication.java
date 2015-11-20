@@ -7,6 +7,7 @@ import android.content.Context;
 import java.util.LinkedList;
 import java.util.List;
 
+import cn.bmob.v3.Bmob;
 import cn.smssdk.SMSSDK;
 
 /**
@@ -44,7 +45,8 @@ public class BaseApplication extends Application {
         context=getApplicationContext();
         //初始化db
         DbHelper.init(this);
-
+       //初始化bmob
+        Bmob.initialize(this, "412b282b0b8896bf8791d8682843020d");
     }
     //返回Context的对象
     public static Context getContext()
