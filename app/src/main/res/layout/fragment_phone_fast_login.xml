@@ -115,7 +115,7 @@
                 android:id="@+id/relative_getCheckedNum"
                 android:layout_centerVertical="true"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/button_selector"
+                android:background="@drawable/login_onclickget_phone_check_selector"
                   >
                 <TextView
                     android:layout_width="wrap_content"
@@ -128,13 +128,15 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="60s"
+                    android:textSize="18sp"
+                    android:textColor="@color/login_btn_line"
                     android:id="@+id/text_onclick_countdown"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"/>
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="重新获取"
+                    android:text="点击重新获取"
                     android:id="@+id/text_onclick_reget"
                     android:layout_centerVertical="true"
                     android:layout_centerHorizontal="true"/>

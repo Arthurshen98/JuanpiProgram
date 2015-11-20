@@ -162,7 +162,10 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
             case R.id.text_onclick_getcheckNum:
                 text_onclick_getcheckNum.setVisibility(View.GONE);
                 text_onclick_countdown.setVisibility(View.VISIBLE);
+                //执行倒计时
                 countdown();
+                //给用户发送短信
+                toSendSMS();
                 break;
             case R.id.text_onclick_reget:
                 //重新发送
@@ -171,6 +174,24 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
             case R.id.text_onclick_countdown:
                 break;
         }
+    }
+
+    /**
+     * 给用户发送短信
+     */
+    private String phoneNum = null;
+    private void toSendSMS() {
+        //获取到用户手机号码
+        phoneNum = editText_input_phoneNum.getText().toString();
+
+    }
+
+    /**
+     * 判断验证码是否正确
+     */
+    private  void isTureCheckNum(){
+        //发送的验证码
+
     }
 
     /**
@@ -197,12 +218,21 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
     private Handler handler=new Handler(){
         //处理消息
         public void handleMessage(Message msg) {
-            int count = msg.arg1;
-            text_onclick_countdown.setText(count+"s");
+           int count = msg.arg1;
+            if (count > 1) {
+                text_onclick_countdown.setText(count + "s");
+            //    relative_getCheckedNum.setSelected(true);
+            }else{
+                //倒计时之后重新发送
+                text_onclick_countdown.setVisibility(View.GONE);
+                text_onclick_reget.setVisibility(View.VISIBLE);
+             //   relative_getCheckedNum.setSelected(false);
+                return;
+            }
         };
     };
-
-   private  int count = 0;
+//倒计时
+   private  int count = 1;
     public  void  countdown(){
         count = 61;
         new Thread(new Runnable() {
@@ -226,11 +256,6 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
             }
         }).start();
 
-        if(count == 59){
-            //倒计时之后重新发送
-            text_onclick_countdown.setVisibility(View.GONE);
-            text_onclick_reget.setVisibility(View.VISIBLE);
-    }
 
     }
 
