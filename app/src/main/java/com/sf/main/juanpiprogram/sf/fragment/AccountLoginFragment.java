@@ -1,6 +1,7 @@
 package com.sf.main.juanpiprogram.sf.fragment;
 
 
+import android.content.Intent;
 import android.drm.DrmStore;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -13,8 +14,17 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.sf.main.juanpiprogram.MainActivity;
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.activity.LoginActivity;
+import com.sf.main.juanpiprogram.sf.activity.PersonCenterActivity;
+import com.sf.main.juanpiprogram.sf.entities.User;
+import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
+
+import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.listener.SaveListener;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -135,8 +145,11 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            //登录按钮
+            //登录按钮,
             case R.id.relativeLayout_loginin_btn:
+               //验证用户名和密码是否正确
+                testUserAndPasswordIstrue();
+
                 break;
             //忘记密码
             case R.id.textView_forget_password:
@@ -158,6 +171,34 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
                 clearaccountinfotwo();
                 break;
         }
+    }
+
+    /**
+     * 验证用户名和密码是否正确
+     */
+    private void testUserAndPasswordIstrue() {
+        final String userName = editText_username_login.getText().toString();
+        String password =  editText_pass_login.getText().toString();
+        final BmobUser userLogin = new BmobUser();
+        userLogin.setUsername(userName);
+        userLogin.setPassword(password);
+        userLogin.login(BaseApplication.getContext(), new SaveListener() {
+           User user = null;
+            @Override
+            public void onSuccess() {
+                //缓存当前用户对象
+                user = BmobUser.getCurrentUser(BaseApplication.getContext(), User.class);
+
+                Intent intent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
+                intent.putExtra("userName", userName);
+                startActivity(intent);
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+
+            }
+        });
     }
 
     /**

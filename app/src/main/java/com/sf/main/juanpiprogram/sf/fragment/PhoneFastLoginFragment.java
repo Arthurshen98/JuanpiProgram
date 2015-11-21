@@ -18,8 +18,10 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.entities.PhoneFastLogin;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
 
+import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
@@ -167,6 +169,10 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
             case R.id.relative_phonefast_login_btn:
                 //登录的时候验证验证码
                 isTureCheckNum();
+                //还应该判断手机是否注册过，如果没有再将手机号码存储
+                testIsUsed();
+                //将手机号码存到云端
+                forNetStorage();
                 break;
 
             case R.id.relative_getCheckedNum:
@@ -206,6 +212,32 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
             case R.id.text_onclick_countdown:
                 break;
         }
+    }
+
+    /**
+     * 还应该判断手机是否注册过，如果没有再将手机号码存储
+     */
+    private void testIsUsed() {
+
+    }
+
+    /**
+     * 将手机号码存到云端
+     */
+    private void forNetStorage() {
+        PhoneFastLogin phoneNum = new PhoneFastLogin();
+        phoneNum.setPhoneNum(editText_input_phoneNum.getText().toString());
+        phoneNum.save(BaseApplication.getContext(), new SaveListener() {
+            @Override
+            public void onSuccess() {
+                Toast.makeText(BaseApplication.getContext(), "登录成功！", Toast.LENGTH_SHORT).show();
+            }
+
+            @Override
+            public void onFailure(int i, String s) {
+                Toast.makeText(BaseApplication.getContext(), "登录失败！", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     /**

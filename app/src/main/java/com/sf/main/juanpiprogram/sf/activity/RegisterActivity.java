@@ -27,11 +27,12 @@ import cn.smssdk.SMSSDK;
 
 public class RegisterActivity extends Activity implements View.OnClickListener {
 
-    private ImageView imageView_checkNum_clear,imageView_phone_password_clear;
-    private EditText editText_input_phoneNum,editText_phone_checkNum;
+    private ImageView register_imageView_checkNum_clear,register_imageView_phone_password_clear,imageView_register_return;
+    private EditText register_editText_input_phoneNum,register_editText_phone_checkNum;
     //登录+获取验证码框
-    private RelativeLayout relative_phonefast_login_btn,relative_getCheckedNum;
-    private TextView text_onclick_getcheckNum,text_onclick_reget,text_onclick_countdown;
+    private RelativeLayout register_relative_phonefast_login_btn,register_relative_getCheckedNum;
+    private TextView register_text_onclick_getcheckNum,register_text_onclick_reget,register_text_onclick_countdown;
+    
     private ImageView register_login_clear_account1,register_login_clear_account2;
     private EditText register_editText_username_login,register_editText_pass_login;
     @Override
@@ -42,7 +43,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
         //布局组件初始化+set监听
         initcontent();
-
         //用于名文本改变监听
         textchangelistener1();
         //密码文本改变监听
@@ -55,8 +55,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     //验证码文本改变监听
     private void checkChangeLinstener() {
-        imageView_phone_password_clear.setVisibility(View.GONE);
-        editText_phone_checkNum.addTextChangedListener(new TextWatcher() {
+        register_imageView_phone_password_clear.setVisibility(View.GONE);
+        register_editText_phone_checkNum.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -70,9 +70,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() == 0) {
-                    imageView_phone_password_clear.setVisibility(View.GONE);
+                    register_imageView_phone_password_clear.setVisibility(View.GONE);
                 } else {
-                    imageView_phone_password_clear.setVisibility(View.VISIBLE);
+                    register_imageView_phone_password_clear.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -83,8 +83,8 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      * 文本改变监听
      */
     private void edittextChangeLinstener() {
-        imageView_checkNum_clear.setVisibility(View.GONE);
-        editText_input_phoneNum.addTextChangedListener(new TextWatcher() {
+        register_imageView_checkNum_clear.setVisibility(View.GONE);
+        register_editText_input_phoneNum.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
@@ -98,9 +98,9 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
             @Override
             public void afterTextChanged(Editable s) {
                 if (s.length() == 0) {
-                    imageView_checkNum_clear.setVisibility(View.GONE);
+                    register_imageView_checkNum_clear.setVisibility(View.GONE);
                 } else {
-                    imageView_checkNum_clear.setVisibility(View.VISIBLE);
+                    register_imageView_checkNum_clear.setVisibility(View.VISIBLE);
                 }
             }
         });
@@ -113,18 +113,18 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      * 布局组件初始化+set监听
      */
     private void initcontent() {
-        imageView_checkNum_clear = (ImageView) findViewById(R.id.register_imageView_checkNum_clear);
-        imageView_phone_password_clear = (ImageView)findViewById(R.id.register_imageView_phone_password_clear);
+        register_imageView_checkNum_clear = (ImageView) findViewById(R.id.register_imageView_checkNum_clear);
+        register_imageView_phone_password_clear = (ImageView)findViewById(R.id.register_imageView_phone_password_clear);
 
-        editText_input_phoneNum = (EditText) findViewById(R.id.register_editText_input_phoneNum);
-        editText_phone_checkNum = (EditText) findViewById(R.id.register_editText_phone_checkNum);
+        register_editText_input_phoneNum = (EditText) findViewById(R.id.register_editText_input_phoneNum);
+        register_editText_phone_checkNum = (EditText) findViewById(R.id.register_editText_phone_checkNum);
 
-        relative_phonefast_login_btn = (RelativeLayout) findViewById(R.id.register_relative_phonefast_login_btn);
-        relative_getCheckedNum = (RelativeLayout) findViewById(R.id.register_relative_getCheckedNum);
+        register_relative_phonefast_login_btn = (RelativeLayout) findViewById(R.id.register_relative_phonefast_login_btn);
+        register_relative_getCheckedNum = (RelativeLayout) findViewById(R.id.register_relative_getCheckedNum);
 
-        text_onclick_getcheckNum = (TextView) findViewById(R.id.register_text_onclick_getcheckNum);
-        text_onclick_reget = (TextView) findViewById(R.id.register_text_onclick_reget);
-        text_onclick_countdown = (TextView) findViewById(R.id.register_text_onclick_countdown);
+        register_text_onclick_getcheckNum = (TextView) findViewById(R.id.register_text_onclick_getcheckNum);
+        register_text_onclick_reget = (TextView) findViewById(R.id.register_text_onclick_reget);
+        register_text_onclick_countdown = (TextView) findViewById(R.id.register_text_onclick_countdown);
 
         //清除账户信息
         register_login_clear_account1 = (ImageView) findViewById(R.id.register_login_clear_account1);
@@ -138,19 +138,21 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         register_editText_pass_login = (EditText) findViewById(R.id.register_editText_pass_login);
         register_editText_pass_login.setOnClickListener(this);
 
-        imageView_checkNum_clear.setOnClickListener(this);
-        imageView_phone_password_clear.setOnClickListener(this);
-        relative_phonefast_login_btn.setOnClickListener(this);
-        relative_getCheckedNum.setOnClickListener(this);
-        text_onclick_getcheckNum.setOnClickListener(this);
-        text_onclick_reget.setOnClickListener(this);
-        text_onclick_countdown.setOnClickListener(this);
-        editText_input_phoneNum.setOnClickListener(this);
-        editText_phone_checkNum.setOnClickListener(this);
-
+        //返回
+        imageView_register_return = (ImageView) findViewById(R.id.imageView_register_return);
+        register_imageView_checkNum_clear.setOnClickListener(this);
+        register_imageView_phone_password_clear.setOnClickListener(this);
+        register_relative_phonefast_login_btn.setOnClickListener(this);
+        register_relative_getCheckedNum.setOnClickListener(this);
+        register_text_onclick_getcheckNum.setOnClickListener(this);
+        register_text_onclick_reget.setOnClickListener(this);
+        register_text_onclick_countdown.setOnClickListener(this);
+        register_editText_input_phoneNum.setOnClickListener(this);
+        register_editText_phone_checkNum.setOnClickListener(this);
+        imageView_register_return.setOnClickListener(this);
         //隐藏两个控件
-        text_onclick_countdown.setVisibility(View.GONE);
-        text_onclick_reget.setVisibility(View.GONE);
+        register_text_onclick_countdown.setVisibility(View.GONE);
+        register_text_onclick_reget.setVisibility(View.GONE);
 
         //启动SMS
         SMSSDK.initSDK(BaseApplication.getContext(), "c21ce1d85935", "4824fa95b122eba98158d4cfb02588ab");
@@ -164,46 +166,46 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
-            case R.id.imageView_checkNum_clear:
+            case R.id.register_imageView_checkNum_clear:
                 //清除电话号码
                 clearPhoneNum();
                 break;
-            case R.id.imageView_phone_password_clear:
+            case R.id.register_imageView_phone_password_clear:
                 //清除验证码
                 clearCheckNum();
                 break;
-            case R.id.relative_phonefast_login_btn:
+            case R.id.register_relative_phonefast_login_btn:
                 //登录的时候验证验证码
                 isTureCheckNum();
                 break;
 
-            case R.id.text_onclick_getcheckNum:
+            case R.id.register_text_onclick_getcheckNum:
 
-                if (!editText_input_phoneNum.getText().toString().equals("")&& editText_input_phoneNum.getText().toString().length() == 11) {
-                    text_onclick_getcheckNum.setVisibility(View.GONE);
-                    text_onclick_countdown.setVisibility(View.VISIBLE);
+                if (!register_editText_input_phoneNum.getText().toString().equals("")&& register_editText_input_phoneNum.getText().toString().length() == 11) {
+                    register_text_onclick_getcheckNum.setVisibility(View.GONE);
+                    register_text_onclick_countdown.setVisibility(View.VISIBLE);
                     //给用户发送短信
                     toSendSMS();
                     //执行倒计时
                     countdown();
                 }else{
                     Toast.makeText(BaseApplication.getContext(), "手机号不能为空", Toast.LENGTH_SHORT).show();
-                    editText_input_phoneNum.requestFocus();
+                    register_editText_input_phoneNum.requestFocus();
                 }
 
 
                 break;
-            case R.id.text_onclick_reget:
-                if (!editText_input_phoneNum.getText().toString().equals("") && editText_input_phoneNum.getText().toString().length() == 11) {
+            case R.id.register_text_onclick_reget:
+                if (!register_editText_input_phoneNum.getText().toString().equals("") && register_editText_input_phoneNum.getText().toString().length() == 11) {
                     //给用户发送短信
                     toSendSMS();
                     //重新发送
                     countdown();
-                    text_onclick_reget.setVisibility(View.GONE);
-                    text_onclick_countdown.setVisibility(View.VISIBLE);
+                    register_text_onclick_reget.setVisibility(View.GONE);
+                    register_text_onclick_countdown.setVisibility(View.VISIBLE);
                 }else {
                     Toast.makeText(BaseApplication.getContext(), "手机号不能为空", Toast.LENGTH_SHORT).show();
-                    editText_input_phoneNum.requestFocus();
+                    register_editText_input_phoneNum.requestFocus();
                 }
 
                 break;
@@ -215,8 +217,12 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 clearaccountinfotwo();
                 break;
             //点击注册
-            case R.id.register_relative_phonefast_login_btn:
+            case R.id.relative_phonefast_login_btn:
                 onClickedRegisterToBmob();
+                break;
+            //返回
+            case R.id.imageView_register_return:
+                finish();
                 break;
         }
     }
@@ -225,16 +231,16 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      */
     private void clearPhoneNum() {
         //点击按钮删除文本
-        editText_input_phoneNum.setText("");
-        imageView_checkNum_clear.setVisibility(View.GONE);
+        register_editText_input_phoneNum.setText("");
+        register_imageView_checkNum_clear.setVisibility(View.GONE);
     }
     /**
      * 清除验证码
      */
     private void clearCheckNum() {
 //点击按钮删除文本
-        editText_phone_checkNum.setText("");
-        imageView_phone_password_clear.setVisibility(View.GONE);
+        register_editText_phone_checkNum.setText("");
+        register_imageView_phone_password_clear.setVisibility(View.GONE);
     }
     /**
      * 清除账户信息
@@ -257,45 +263,29 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
      */
     private String phoneNum = null;
     private void toSendSMS() {
-        /*//打开注册页面
-        RegisterPage registerPage = new RegisterPage();
-        registerPage.setRegisterCallback(new EventHandler() {
-            public void afterEvent(int event, int result, Object data) {
-       // 解析注册结果
-                if (result == SMSSDK.RESULT_COMPLETE) {
-                    @SuppressWarnings("unchecked")
-                    HashMap<String,Object> phoneMap = (HashMap<String, Object>) data;
-                    String country = (String) phoneMap.get("country");
-                    String phone = (String) phoneMap.get("phone");
 
-            // 提交用户信息
-                 //   registerUser(country, phone);
-                }
-            }
-        });
-        registerPage.show(BaseApplication.getContext());*/
 
 
         //获取到用户手机号码
-        phoneNum = editText_input_phoneNum.getText().toString();
+        phoneNum = register_editText_input_phoneNum.getText().toString();
         if (!TextUtils.isEmpty(phoneNum)) {
             SMSSDK.getVerificationCode("+86", phoneNum);
-            editText_phone_checkNum.requestFocus();
+            register_editText_phone_checkNum.requestFocus();
         }
         //((Button) view).setText("重新发送");
     }
 
     private  void isTureCheckNum(){
         //获取到用户手机号码
-        phoneNum = editText_input_phoneNum.getText().toString();
+        phoneNum = register_editText_input_phoneNum.getText().toString();
         //验证的验证码
-        String checkNum = editText_phone_checkNum.getText().toString();
+        String checkNum = register_editText_phone_checkNum.getText().toString();
         if (!TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(checkNum)) {
             SMSSDK.submitVerificationCode("+86", phoneNum, checkNum);
-            editText_phone_checkNum.requestFocus();
+            register_editText_phone_checkNum.requestFocus();
         } else {
             Toast.makeText(BaseApplication.getContext(), "验证码不能为空", Toast.LENGTH_SHORT).show();
-            editText_phone_checkNum.requestFocus();
+            register_editText_phone_checkNum.requestFocus();
         }
     }
 
@@ -352,13 +342,13 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
         public void handleMessage(Message msg) {
             int count = msg.arg1;
             if (count > 1) {
-                text_onclick_countdown.setText(count + "s");
-                //    relative_getCheckedNum.setSelected(true);
+                register_text_onclick_countdown.setText(count + "s");
+                //    register_relative_getCheckedNum.setSelected(true);
             }else{
                 //倒计时之后重新发送
-                text_onclick_countdown.setVisibility(View.GONE);
-                text_onclick_reget.setVisibility(View.VISIBLE);
-                //   relative_getCheckedNum.setSelected(false);
+                register_text_onclick_countdown.setVisibility(View.GONE);
+                register_text_onclick_reget.setVisibility(View.VISIBLE);
+                //   register_relative_getCheckedNum.setSelected(false);
                 return;
             }
         };
@@ -463,7 +453,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                             User user = new User();
                             user.setUserName(register_editText_username_login.getText().toString());
                             user.setPassword(register_editText_pass_login.getText().toString());
-                            user.setPhoneNum(editText_input_phoneNum.getText().toString());
+                            user.setPhoneNum(register_editText_input_phoneNum.getText().toString());
                             user.save(RegisterActivity.this, new SaveListener() {
                                 @Override
                                 public void onSuccess() {
@@ -498,16 +488,10 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
     }
 
-
-
     @Override
     public void onDestroy() {
         super.onDestroy();
         SMSSDK.unregisterAllEventHandler();
     }
 
-    //返回
-    private void onFinish(View view) {
-        finish();
-    }
 }

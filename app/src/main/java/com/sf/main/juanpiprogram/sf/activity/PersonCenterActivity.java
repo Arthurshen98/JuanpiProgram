@@ -37,6 +37,26 @@ public class PersonCenterActivity extends FragmentActivity implements View.OnCli
         //个人中心的菜单项
         personCenterMenu();
 
+        //登录成功后接收传过来的用户名
+        successLoginGetUserName();
+
+    }
+
+    /**
+     * 登录成功后接收传过来的用户名
+     */
+
+    private void successLoginGetUserName() {
+        Intent getUsername = getIntent();
+        String userName = getUsername.getStringExtra("userName");
+        fmanager = getSupportFragmentManager();
+        ftransaction = fmanager.beginTransaction();
+        PersonAfterLoginFragment afterFragment = new PersonAfterLoginFragment();
+        Bundle bundle = new Bundle();
+        bundle.putString("userName",userName);
+        afterFragment.setArguments(bundle);
+        ftransaction.replace(R.id.linearLayout_person_center, afterFragment);
+        ftransaction.commit();
     }
 
     /**
