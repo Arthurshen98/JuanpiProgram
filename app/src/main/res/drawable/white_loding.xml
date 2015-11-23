@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<animation-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@mipmap/sku_loading_white01" android:duration="100"/>
+    <item android:drawable="@mipmap/sku_loading_white02" android:duration="100"/>
+    <item android:drawable="@mipmap/sku_loading_white03" android:duration="100"/>
+    <item android:drawable="@mipmap/sku_loading_white04" android:duration="100"/>
+    <item android:drawable="@mipmap/sku_loading_white05" android:duration="100"/>
+    <item android:drawable="@mipmap/sku_loading_white06" android:duration="100"/>
+    <item android:drawable="@mipmap/sku_loading_white07" android:duration="100"/>
+</animation-list>

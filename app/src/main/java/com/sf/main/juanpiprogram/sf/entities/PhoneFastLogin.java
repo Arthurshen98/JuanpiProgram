@@ -8,6 +8,7 @@ import cn.bmob.v3.BmobObject;
 public class PhoneFastLogin extends BmobObject {
     private String phoneNum;
 
+
     public String getPhoneNum() {
         return phoneNum;
     }

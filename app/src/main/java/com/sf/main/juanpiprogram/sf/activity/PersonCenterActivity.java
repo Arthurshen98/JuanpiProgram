@@ -1,7 +1,9 @@
 package com.sf.main.juanpiprogram.sf.activity;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -15,6 +17,7 @@ import com.sf.main.juanpiprogram.R;
 import com.sf.main.juanpiprogram.sf.fragment.PersonAfterLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.PersonBeforeLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.SearchHistoryFragment;
+import com.sf.main.juanpiprogram.sf.utils.UserManager;
 
 import java.security.PrivateKey;
 
@@ -53,10 +56,31 @@ public class PersonCenterActivity extends FragmentActivity implements View.OnCli
         ftransaction = fmanager.beginTransaction();
         PersonAfterLoginFragment afterFragment = new PersonAfterLoginFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("userName",userName);
-        afterFragment.setArguments(bundle);
-        ftransaction.replace(R.id.linearLayout_person_center, afterFragment);
-        ftransaction.commit();
+        bundle.putString("userName", userName);
+        //把用户名放到共享参数里面
+        saveSharePrefrence(userName);
+
+        if (bundle!=null) {
+            afterFragment.setArguments(bundle);
+            ftransaction.replace(R.id.linearLayout_person_center, afterFragment);
+            ftransaction.commit();
+        }
+
+    }
+
+    /**
+     * 将数据存储到共享参数里面
+     */
+    public void saveSharePrefrence(String userName) {
+
+        SharedPreferences share = getSharedPreferences("user", Context.MODE_PRIVATE);
+        //得到共享参数编辑对象
+        SharedPreferences.Editor edit = share.edit();
+        //使用共享参数编辑对象存储数据
+        edit.putString("userName", userName);
+        edit.putBoolean("state", true);
+        //提交
+        edit.commit();
     }
 
     /**
@@ -64,12 +88,12 @@ public class PersonCenterActivity extends FragmentActivity implements View.OnCli
      */
     private void personBg() {
 
-        boolean flag = false;
+        UserManager userManager = new UserManager(PersonCenterActivity.this);
         //判断用户是否登录
-        if (!flag) {
+        if (userManager.isLogin()) {
             //在用户未登录状态的背景
             noLoginBg();
-        }else {
+        } else {
             //用户登录后的背景
             alreadLoginBg();
         }

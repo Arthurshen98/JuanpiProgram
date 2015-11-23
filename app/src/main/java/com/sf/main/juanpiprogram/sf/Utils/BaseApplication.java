@@ -74,8 +74,9 @@ public class BaseApplication extends Application {
     }
 
     /**
-     *
+     * APP检查更新
      */
+
 
 
 }

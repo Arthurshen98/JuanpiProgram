@@ -11,6 +11,14 @@ public class User extends BmobObject {
     private String password;
     private String phoneNum;
 
+    public String getPhoneNum() {
+        return phoneNum;
+    }
+
+    public void setPhoneNum(String phoneNum) {
+        this.phoneNum = phoneNum;
+    }
+
     public String getUserName() {
         return userName;
     }
@@ -27,11 +35,5 @@ public class User extends BmobObject {
         this.password = password;
     }
 
-    public String getPhoneNum() {
-        return phoneNum;
-    }
 
-    public void setPhoneNum(String phoneNum) {
-        this.phoneNum = phoneNum;
-    }
 }

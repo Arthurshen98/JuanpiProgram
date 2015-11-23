@@ -12,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,6 +23,7 @@ import com.sf.main.juanpiprogram.sf.activity.LoginActivity;
 import com.sf.main.juanpiprogram.sf.activity.PersonCenterActivity;
 import com.sf.main.juanpiprogram.sf.entities.User;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
+import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
@@ -31,7 +33,7 @@ import cn.bmob.v3.listener.SaveListener;
  */
 public class AccountLoginFragment extends Fragment implements View.OnClickListener {
 
-
+    private MyProgressBar myProgressBar;
     private TextView textView_forgetps;
     private RelativeLayout relativeLayout_loginin_btn;
     private ImageView imageqq,imageweixin,imageweibo,login_clear_account1,login_clear_account2;
@@ -71,7 +73,10 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
         textchangelistener2();
         //第三方登录初始化
         thirdLogin(view);
+
+
     }
+
 
     /**
      * 文字改变监听user
@@ -150,6 +155,7 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
                //验证用户名和密码是否正确
                 testUserAndPasswordIstrue();
 
+
                 break;
             //忘记密码
             case R.id.textView_forget_password:
@@ -177,28 +183,45 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
      * 验证用户名和密码是否正确
      */
     private void testUserAndPasswordIstrue() {
-        final String userName = editText_username_login.getText().toString();
-        String password =  editText_pass_login.getText().toString();
-        final BmobUser userLogin = new BmobUser();
-        userLogin.setUsername(userName);
-        userLogin.setPassword(password);
-        userLogin.login(BaseApplication.getContext(), new SaveListener() {
-           User user = null;
-            @Override
-            public void onSuccess() {
-                //缓存当前用户对象
-                user = BmobUser.getCurrentUser(BaseApplication.getContext(), User.class);
+        if (!editText_username_login.getText().toString().equals("") && !editText_pass_login.getText().toString().equals("")) {
 
-                Intent intent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
-                intent.putExtra("userName", userName);
-                startActivity(intent);
-            }
+            //loding
+            myProgressBar.show(getActivity(), "正在登录……", true, null);
 
-            @Override
-            public void onFailure(int i, String s) {
+            final String userName = editText_username_login.getText().toString();
+            String password = editText_pass_login.getText().toString();
+            final BmobUser userLogin = new BmobUser();
+            userLogin.setUsername(userName);
+            userLogin.setPassword(password);
+            userLogin.login(BaseApplication.getContext(), new SaveListener() {
+                User user = null;
 
-            }
-        });
+                @Override
+                public void onSuccess() {
+                    //缓存当前用户对象
+                    user = BmobUser.getCurrentUser(BaseApplication.getContext(), User.class);
+                    myProgressBar.dismissDialog();
+                    Toast.makeText(BaseApplication.getContext(), "登录成功！", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
+                    intent.putExtra("userName", userName);
+                    startActivity(intent);
+                }
+
+                @Override
+                public void onFailure(int i, String s) {
+                    myProgressBar.dismissDialog();
+                    Toast.makeText(BaseApplication.getContext(), "登录失败！", Toast.LENGTH_SHORT).show();
+
+                }
+            });
+        }else {
+            Toast.makeText(BaseApplication.getContext(), "用户名或密码不能为空！", Toast.LENGTH_SHORT).show();
+
+        }
+
+
+
+
     }
 
     /**

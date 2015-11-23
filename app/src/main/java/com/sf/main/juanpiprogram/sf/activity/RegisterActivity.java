@@ -1,6 +1,8 @@
 package com.sf.main.juanpiprogram.sf.activity;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.app.AppCompatActivity;
@@ -18,8 +20,10 @@ import android.widget.Toast;
 
 import com.sf.main.juanpiprogram.MainActivity;
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.entities.PhoneFastLogin;
 import com.sf.main.juanpiprogram.sf.entities.User;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
+import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
 
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
@@ -310,7 +314,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                             
                         } else if (event == SMSSDK.EVENT_GET_VERIFICATION_CODE) {
                             //获取验证码成功
-                            Toast.makeText(BaseApplication.getContext(), "验证码已发送", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(BaseApplication.getContext(), "验证码正在发送", Toast.LENGTH_SHORT).show();
                         } else if (event == SMSSDK.EVENT_GET_SUPPORTED_COUNTRIES) {
                             //返回支持发送验证码的国家列表
                         }
@@ -450,6 +454,7 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                 if (!register_editText_pass_login.getText().toString().equals("")) {
                     if (register_editText_pass_login.getText().toString().length() >= 6) {
                         if (checkSuccess) {
+                            MyProgressBar.show(RegisterActivity.this, "正在注册，请稍等……", true, null);
                             User user = new User();
                             user.setUserName(register_editText_username_login.getText().toString());
                             user.setPassword(register_editText_pass_login.getText().toString());
@@ -457,11 +462,16 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                             user.save(RegisterActivity.this, new SaveListener() {
                                 @Override
                                 public void onSuccess() {
+                                    MyProgressBar.dismissDialog();
                                     Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
+                                    Intent regIntent = new Intent(RegisterActivity.this, PersonCenterActivity.class);
+                                    regIntent.putExtra("userName",register_editText_username_login.getText().toString());
                                 }
+
 
                                 @Override
                                 public void onFailure(int i, String s) {
+                                    MyProgressBar.dismissDialog();
                                     Toast.makeText(RegisterActivity.this, "注册失败！", Toast.LENGTH_SHORT).show();
                                 }
                             });
@@ -486,6 +496,11 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
 
         }
 
+    }
+
+    //动态加载Progress
+    private void progressBar() {
+     //   ProgressDialog dialog = new ProgressDialog();
     }
 
     @Override

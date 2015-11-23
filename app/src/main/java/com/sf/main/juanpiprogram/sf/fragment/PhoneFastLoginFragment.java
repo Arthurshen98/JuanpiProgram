@@ -1,6 +1,7 @@
 package com.sf.main.juanpiprogram.sf.fragment;
 
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -18,8 +19,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.activity.LoginActivity;
+import com.sf.main.juanpiprogram.sf.activity.PersonCenterActivity;
 import com.sf.main.juanpiprogram.sf.entities.PhoneFastLogin;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
+import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
 
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
@@ -225,17 +229,26 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
      * 将手机号码存到云端
      */
     private void forNetStorage() {
+        //progressBar
+        MyProgressBar.show(getActivity(), "正在登录……",true,null);
+
         PhoneFastLogin phoneNum = new PhoneFastLogin();
         phoneNum.setPhoneNum(editText_input_phoneNum.getText().toString());
         phoneNum.save(BaseApplication.getContext(), new SaveListener() {
             @Override
             public void onSuccess() {
                 Toast.makeText(BaseApplication.getContext(), "登录成功！", Toast.LENGTH_SHORT).show();
+                Intent fastIntent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
+                fastIntent.putExtra("userName", editText_input_phoneNum.getText().toString());
+                startActivity(fastIntent);
             }
 
             @Override
             public void onFailure(int i, String s) {
+                MyProgressBar myProgressBar = null;
+                myProgressBar.dismissDialog();
                 Toast.makeText(BaseApplication.getContext(), "登录失败！", Toast.LENGTH_SHORT).show();
+
             }
         });
     }
