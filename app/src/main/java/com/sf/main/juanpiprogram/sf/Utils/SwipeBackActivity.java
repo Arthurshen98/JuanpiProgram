@@ -3,11 +3,14 @@ package com.sf.main.juanpiprogram.sf.utils;
 import android.app.Activity;
 import android.app.Fragment;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
 import android.view.LayoutInflater;
 import android.view.Window;
+import android.view.WindowManager;
 
+import com.readystatesoftware.systembartint.SystemBarTintManager;
 import com.sf.main.juanpiprogram.R;
 
 /**
@@ -23,7 +26,13 @@ public class SwipeBackActivity extends FragmentActivity {
         layout = (SwipeBackLayout) LayoutInflater.from(this).inflate(
                 R.layout.swipe_back_layout_base, null);
         layout.attachToActivity(this);
+
+
+
     }
+    /**
+     *  沉浸式状态栏
+     */
 
 
     @Override

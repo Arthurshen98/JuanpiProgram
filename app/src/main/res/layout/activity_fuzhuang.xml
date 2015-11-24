@@ -3,7 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context="com.sf.main.juanpiprogram.sf.activity.FuzhuangActivity"
-    android:background="@color/white">
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:theme="@style/FullBleedTheme"
+    android:clipToPadding="false">
     <LinearLayout
         android:orientation="vertical"
         android:layout_width="match_parent"

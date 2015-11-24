@@ -41,10 +41,12 @@ public class MainActivity extends AppCompatActivity
 
         //浮动按钮
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+        fab.setImageResource(R.mipmap.sell_bhz);
+
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                Snackbar.make(view, "去购物车！", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
         });
@@ -232,5 +234,7 @@ public class MainActivity extends AppCompatActivity
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
     }
+
+
 
 }
