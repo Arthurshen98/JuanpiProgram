@@ -53,4 +53,21 @@ public class UserManager {
         edit.commit();
     }
 
+    /**
+     * 将数据存储到共享参数里面
+     */
+    public void saveSharePrefrence(String userName,String phoneNum,boolean state) {
+
+        SharedPreferences share = BaseApplication.getContext().getSharedPreferences("user", Context.MODE_PRIVATE);
+        //得到共享参数编辑对象
+        SharedPreferences.Editor edit = share.edit();
+        //使用共享参数编辑对象存储数据
+
+        edit.putString("userName", userName);
+        edit.putString("phoneNum", phoneNum);
+        edit.putBoolean("state", state);
+        //提交
+        edit.commit();
+    }
+
 }

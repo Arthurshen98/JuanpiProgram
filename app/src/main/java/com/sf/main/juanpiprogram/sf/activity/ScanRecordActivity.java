@@ -7,8 +7,9 @@ import android.view.View;
 import android.view.Window;
 
 import com.sf.main.juanpiprogram.R;
+import com.sf.main.juanpiprogram.sf.utils.SwipeBackActivity;
 
-public class ScanRecordActivity extends Activity {
+public class ScanRecordActivity extends SwipeBackActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -36,43 +36,64 @@
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:windowSoftInputMode="stateHidden|adjustResize"/>
 
-        <activity android:name=".sf.activity.SearchGoodsActivity" >
+        <activity android:name=".sf.activity.SearchGoodsActivity"
+            android:theme="@style/AppThemeSwipe.Transparent"
+            >
         </activity>
-        <activity android:name=".sf.activity.PersonCenterActivity" >
+        <activity android:name=".sf.activity.PersonCenterActivity"
+            android:theme="@style/AppThemeSwipe.Transparent"
+            >
         </activity>
-        <activity android:name=".sf.activity.AboutJuanpiActivity" >
+        <activity android:name=".sf.activity.AboutJuanpiActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.CallCenterActivity" >
+        <activity android:name=".sf.activity.CallCenterActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.FuzhuangActivity" >
+        <activity android:name=".sf.activity.FuzhuangActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.JiajuActivity" >
+        <activity android:name=".sf.activity.JiajuActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MuyingActivity" >
+        <activity android:name=".sf.activity.MuyingActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MeishiActivity" >
+        <activity android:name=".sf.activity.MeishiActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MeizhuangActivity" >
+        <activity android:name=".sf.activity.MeizhuangActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.NoPayActivity" >
+        <activity android:name=".sf.activity.NoPayActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.LogisticActivity" >
+        <activity android:name=".sf.activity.LogisticActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.AllOrderActivity" >
+        <activity android:name=".sf.activity.AllOrderActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MyCollectActivity" >
+        <activity android:name=".sf.activity.MyCollectActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MyCouponActivity" >
+        <activity android:name=".sf.activity.MyCouponActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.ScanRecordActivity" >
+        <activity android:name=".sf.activity.ScanRecordActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MyIntegralActivity" >
+        <activity android:name=".sf.activity.MyIntegralActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.MyafterserviceActivity" >
+        <activity android:name=".sf.activity.MyafterserviceActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.LoginActivity" >
+        <activity android:name=".sf.activity.LoginActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
-        <activity android:name=".sf.activity.RegisterActivity" >
+        <activity android:name=".sf.activity.RegisterActivity"
+            android:theme="@style/AppThemeSwipe.Transparent">
         </activity>
     </application>
 

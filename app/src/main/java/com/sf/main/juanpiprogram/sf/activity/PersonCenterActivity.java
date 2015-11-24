@@ -17,11 +17,13 @@ import com.sf.main.juanpiprogram.R;
 import com.sf.main.juanpiprogram.sf.fragment.PersonAfterLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.PersonBeforeLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.SearchHistoryFragment;
+import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
+import com.sf.main.juanpiprogram.sf.utils.SwipeBackActivity;
 import com.sf.main.juanpiprogram.sf.utils.UserManager;
 
 import java.security.PrivateKey;
 
-public class PersonCenterActivity extends FragmentActivity implements View.OnClickListener {
+public class PersonCenterActivity extends SwipeBackActivity implements View.OnClickListener {
 
     private RelativeLayout relativeLayout1,relativeLayout2,relativeLayout3,relativeLayout4,relativeLayout5,relativeLayout6,relativeLayout7;
     /**
@@ -30,18 +32,20 @@ public class PersonCenterActivity extends FragmentActivity implements View.OnCli
      */
     private FragmentManager fmanager;
     private FragmentTransaction ftransaction;
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉actionBar
         setContentView(R.layout.activity_person_center);
+
         //个人中心背景
         personBg();
         //个人中心的菜单项
         personCenterMenu();
 
         //登录成功后接收传过来的用户名
-        successLoginGetUserName();
+       // successLoginGetUserName();
 
     }
 
@@ -49,53 +53,39 @@ public class PersonCenterActivity extends FragmentActivity implements View.OnCli
      * 登录成功后接收传过来的用户名
      */
 
-    private void successLoginGetUserName() {
-        Intent getUsername = getIntent();
-        String userName = getUsername.getStringExtra("userName");
+    private void successLoginGetUserName(String user_name,String phoneNum) {
+
         fmanager = getSupportFragmentManager();
         ftransaction = fmanager.beginTransaction();
         PersonAfterLoginFragment afterFragment = new PersonAfterLoginFragment();
         Bundle bundle = new Bundle();
-        bundle.putString("userName", userName);
-        //把用户名放到共享参数里面
-        saveSharePrefrence(userName);
+        bundle.putString("userName",user_name);
+        bundle.putString("phoneNum", phoneNum);
 
-        if (bundle!=null) {
-            afterFragment.setArguments(bundle);
-            ftransaction.replace(R.id.linearLayout_person_center, afterFragment);
-            ftransaction.commit();
-        }
+        afterFragment.setArguments(bundle);
+        ftransaction.replace(R.id.linearLayout_person_center, afterFragment);
+        ftransaction.commit();
 
     }
-
-    /**
-     * 将数据存储到共享参数里面
-     */
-    public void saveSharePrefrence(String userName) {
-
-        SharedPreferences share = getSharedPreferences("user", Context.MODE_PRIVATE);
-        //得到共享参数编辑对象
-        SharedPreferences.Editor edit = share.edit();
-        //使用共享参数编辑对象存储数据
-        edit.putString("userName", userName);
-        edit.putBoolean("state", true);
-        //提交
-        edit.commit();
-    }
-
     /**
      * 个人中心背景
      */
+    private SharedPreferences share;
     private void personBg() {
 
+        share = BaseApplication.getContext().getSharedPreferences("config", Context.MODE_PRIVATE);
+        //得到共享参数对象
+        String user_name = share.getString("userName","");
+        String phoneNum = share.getString("phoneNum", "");
+        boolean state = share.getBoolean("state", false);
         UserManager userManager = new UserManager(PersonCenterActivity.this);
         //判断用户是否登录
-        if (userManager.isLogin()) {
+        if (userManager.isLogin() || !phoneNum.equals("") ) {
+            //用户登录后的背景
+            successLoginGetUserName(user_name,phoneNum);
+        } else {
             //在用户未登录状态的背景
             noLoginBg();
-        } else {
-            //用户登录后的背景
-            alreadLoginBg();
         }
 
 

@@ -39,7 +39,13 @@ public class PersonAfterLoginFragment extends Fragment implements View.OnClickLi
         textView16 = (TextView) view.findViewById(R.id.textView16);
         Bundle bundle = getArguments();
         String userName = bundle.getString("userName");
-        textView16.setText(userName);
+        String phoneNum = bundle.getString("phoneNum");
+        if (!userName.equals("")) {
+            textView16.setText(userName);
+        }else {
+            textView16.setText(phoneNum);
+        }
+
 
         //点击跳转到个人资料
         linearLayout_person_center_bg_btn = (LinearLayout) view.findViewById(R.id.linearLayout_person_center_bg_btn);

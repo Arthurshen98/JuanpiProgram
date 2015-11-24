@@ -24,12 +24,14 @@ import com.sf.main.juanpiprogram.sf.entities.PhoneFastLogin;
 import com.sf.main.juanpiprogram.sf.entities.User;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
 import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
+import com.sf.main.juanpiprogram.sf.utils.SwipeBackActivity;
+import com.sf.main.juanpiprogram.sf.utils.UserManager;
 
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
 import cn.smssdk.SMSSDK;
 
-public class RegisterActivity extends Activity implements View.OnClickListener {
+public class RegisterActivity extends SwipeBackActivity implements View.OnClickListener {
 
     private ImageView register_imageView_checkNum_clear,register_imageView_phone_password_clear,imageView_register_return;
     private EditText register_editText_input_phoneNum,register_editText_phone_checkNum;
@@ -42,7 +44,6 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉actionBar
         setContentView(R.layout.activity_register);
 
         //布局组件初始化+set监听
@@ -464,6 +465,11 @@ public class RegisterActivity extends Activity implements View.OnClickListener {
                                 public void onSuccess() {
                                     MyProgressBar.dismissDialog();
                                     Toast.makeText(RegisterActivity.this, "注册成功！", Toast.LENGTH_SHORT).show();
+
+                                    //存入共享参数
+                                    UserManager userManager = new UserManager(BaseApplication.getContext());
+                                    userManager.saveSharePrefrence(register_editText_username_login.getText().toString().trim(), register_editText_input_phoneNum.getText().toString().trim(), true);
+                                   
                                     Intent regIntent = new Intent(RegisterActivity.this, PersonCenterActivity.class);
                                     regIntent.putExtra("userName",register_editText_username_login.getText().toString());
                                 }

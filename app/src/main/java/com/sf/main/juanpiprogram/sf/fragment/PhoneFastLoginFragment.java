@@ -24,6 +24,7 @@ import com.sf.main.juanpiprogram.sf.activity.PersonCenterActivity;
 import com.sf.main.juanpiprogram.sf.entities.PhoneFastLogin;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
 import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
+import com.sf.main.juanpiprogram.sf.utils.UserManager;
 
 import cn.bmob.v3.listener.SaveListener;
 import cn.smssdk.EventHandler;
@@ -232,14 +233,19 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
         //progressBar
         MyProgressBar.show(getActivity(), "正在登录……",true,null);
 
-        PhoneFastLogin phoneNum = new PhoneFastLogin();
-        phoneNum.setPhoneNum(editText_input_phoneNum.getText().toString());
+        final PhoneFastLogin phoneNum = new PhoneFastLogin();
+        phoneNum.setPhoneNum(editText_input_phoneNum.getText().toString().trim());
         phoneNum.save(BaseApplication.getContext(), new SaveListener() {
             @Override
             public void onSuccess() {
                 Toast.makeText(BaseApplication.getContext(), "登录成功！", Toast.LENGTH_SHORT).show();
+
+                //存入共享参数
+                UserManager userManager = new UserManager(BaseApplication.getContext());
+                userManager.saveSharePrefrence(null, editText_input_phoneNum.getText().toString().trim(), true);
+
                 Intent fastIntent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
-                fastIntent.putExtra("userName", editText_input_phoneNum.getText().toString());
+                fastIntent.putExtra("userName", editText_input_phoneNum.getText().toString().trim());
                 startActivity(fastIntent);
             }
 

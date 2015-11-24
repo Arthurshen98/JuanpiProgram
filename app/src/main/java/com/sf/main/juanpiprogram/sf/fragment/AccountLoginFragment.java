@@ -1,7 +1,9 @@
 package com.sf.main.juanpiprogram.sf.fragment;
 
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.drm.DrmStore;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -24,6 +26,7 @@ import com.sf.main.juanpiprogram.sf.activity.PersonCenterActivity;
 import com.sf.main.juanpiprogram.sf.entities.User;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
 import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
+import com.sf.main.juanpiprogram.sf.utils.UserManager;
 
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
@@ -202,6 +205,11 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
                     user = BmobUser.getCurrentUser(BaseApplication.getContext(), User.class);
                     myProgressBar.dismissDialog();
                     Toast.makeText(BaseApplication.getContext(), "登录成功！", Toast.LENGTH_SHORT).show();
+
+                    //存入共享参数
+                    UserManager userManager = new UserManager(BaseApplication.getContext());
+                    userManager.saveSharePrefrence(userName,null,true);
+
                     Intent intent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
                     intent.putExtra("userName", userName);
                     startActivity(intent);

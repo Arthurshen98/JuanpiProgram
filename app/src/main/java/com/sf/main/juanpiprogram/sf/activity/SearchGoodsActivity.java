@@ -19,8 +19,9 @@ import com.sf.main.juanpiprogram.sf.utils.DbHelper;
 import com.sf.main.juanpiprogram.sf.entities.SearchHistoryData;
 import com.sf.main.juanpiprogram.sf.fragment.SearchDateFragment;
 import com.sf.main.juanpiprogram.sf.fragment.SearchHistoryFragment;
+import com.sf.main.juanpiprogram.sf.utils.SwipeBackActivity;
 
-public class SearchGoodsActivity extends FragmentActivity {
+public class SearchGoodsActivity extends SwipeBackActivity {
 
     /**
      *
@@ -41,7 +42,6 @@ public class SearchGoodsActivity extends FragmentActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉actionBar
         setContentView(R.layout.left_menu_search_goods);
 
         //用于删除搜索文本

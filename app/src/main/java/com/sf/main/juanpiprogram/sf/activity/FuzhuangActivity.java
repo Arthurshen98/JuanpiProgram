@@ -14,7 +14,6 @@ public class FuzhuangActivity extends SwipeBackActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-      //  requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉actionBar
         setContentView(R.layout.activity_fuzhuang);
     }
 

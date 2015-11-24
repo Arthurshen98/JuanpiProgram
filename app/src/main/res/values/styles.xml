@@ -29,4 +29,11 @@
         <item name="android:windowNoTitle">true</item>
     </style>
 
+    <!--SwipeBackActivity-->
+    <style name="AppThemeSwipe" parent="@android:style/Theme.Holo.Light"></style>
+    <style name="AppThemeSwipe.Transparent" >
+        <item name="android:windowBackground">@color/touming</item>
+        <item name="android:windowIsTranslucent">true</item>
+    </style>
+
 </resources>

@@ -19,10 +19,11 @@ import com.sf.main.juanpiprogram.sf.fragment.PersonAfterLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.PersonBeforeLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.PhoneFastLoginFragment;
 import com.sf.main.juanpiprogram.sf.fragment.SearchDateFragment;
+import com.sf.main.juanpiprogram.sf.utils.SwipeBackActivity;
 
 import org.w3c.dom.Text;
 
-public class LoginActivity extends FragmentActivity implements View.OnClickListener {
+public class LoginActivity extends SwipeBackActivity implements View.OnClickListener {
 
     /**
      * 选择登录方式
@@ -38,7 +39,6 @@ public class LoginActivity extends FragmentActivity implements View.OnClickListe
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        requestWindowFeature(Window.FEATURE_NO_TITLE);//去掉actionBar
         setContentView(R.layout.activity_login);
         textRegister = (TextView) findViewById(R.id.textRegister);
         textRegister.setOnClickListener(this);

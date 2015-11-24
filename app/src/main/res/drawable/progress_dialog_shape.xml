@@ -3,5 +3,5 @@
     <!-- 圆角 -->
     <corners android:bottomLeftRadius="8dp" android:bottomRightRadius="8dp" android:topLeftRadius="8dp" android:topRightRadius="8dp"/>
     <!-- 描边  宽度/颜色 -->
-    <stroke android:color="#ff404040"/>
+   <solid android:color="@color/touming"/>
 </shape>
