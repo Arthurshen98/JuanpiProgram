@@ -3,6 +3,7 @@ package com.sf.main.juanpiprogram.sf.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.ActivityCompat;
 import android.view.View;
 import android.view.Window;
 
@@ -19,6 +20,7 @@ public class AboutJuanpiActivity extends SwipeBackActivity {
 
     //返回关闭界面
     public void toFinish(View v) {
-        finish();
+        ActivityCompat.finishAfterTransition(this);
+        overridePendingTransition(0, R.anim.base_slide_right_out);
     }
 }

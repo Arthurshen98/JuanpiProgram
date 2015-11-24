@@ -5,6 +5,7 @@ import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -227,7 +228,8 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
                 break;
             //返回
             case R.id.imageView_register_return:
-                finish();
+                ActivityCompat.finishAfterTransition(this);
+                overridePendingTransition(0, R.anim.base_slide_right_out);
                 break;
         }
     }

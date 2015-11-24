@@ -1,6 +1,7 @@
 package com.sf.main.juanpiprogram.sf.activity;
 
 import android.app.Activity;
+import android.support.v4.app.ActivityCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -19,6 +20,7 @@ public class MyafterserviceActivity extends SwipeBackActivity {
 
     //返回关闭界面
     public void toFinish(View v) {
-        finish();
+        ActivityCompat.finishAfterTransition(this);
+        overridePendingTransition(0, R.anim.base_slide_right_out);
     }
 }

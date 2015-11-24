@@ -1,5 +1,6 @@
 package com.sf.main.juanpiprogram.sf.activity;
 
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -157,7 +158,8 @@ public class SearchGoodsActivity extends SwipeBackActivity {
             @Override
             public void onClick(View v) {
                 //点击取消后就关闭页面
-                finish();
+                ActivityCompat.finishAfterTransition(SearchGoodsActivity.this);
+                overridePendingTransition(0, R.anim.base_slide_right_out);
             }
         });
     }

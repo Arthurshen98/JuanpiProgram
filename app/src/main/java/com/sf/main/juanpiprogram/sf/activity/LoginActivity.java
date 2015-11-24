@@ -3,6 +3,7 @@ package com.sf.main.juanpiprogram.sf.activity;
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.Color;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -93,7 +94,8 @@ public class LoginActivity extends SwipeBackActivity implements View.OnClickList
     }
 
     public void toFinish(View view) {
-        finish();
+        ActivityCompat.finishAfterTransition(this);
+        overridePendingTransition(0, R.anim.base_slide_right_out);
     }
 
 }
