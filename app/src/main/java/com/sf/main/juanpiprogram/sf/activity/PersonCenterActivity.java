@@ -45,8 +45,14 @@ public class PersonCenterActivity extends SwipeBackActivity implements View.OnCl
         //个人中心的菜单项
         personCenterMenu();
 
-        //登录成功后接收传过来的用户名
-       // successLoginGetUserName();
+
+        Intent intent = getIntent();
+        if (intent.getAction() == "toUserName") {
+            String userName = intent.getStringExtra("userName");
+            //登录成功后接收传过来的用户名
+            successLoginGetUserName(userName,null);
+        }
+
 
     }
 

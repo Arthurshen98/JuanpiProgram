@@ -245,7 +245,8 @@ public class PhoneFastLoginFragment extends Fragment implements View.OnClickList
                 userManager.saveSharePrefrence(null, editText_input_phoneNum.getText().toString().trim(), true);
 
                 Intent fastIntent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
-                fastIntent.putExtra("userName", editText_input_phoneNum.getText().toString().trim());
+                fastIntent.putExtra("UserName", editText_input_phoneNum.getText().toString().trim());
+                fastIntent.setAction("toUserName");
                 startActivity(fastIntent);
             }
 

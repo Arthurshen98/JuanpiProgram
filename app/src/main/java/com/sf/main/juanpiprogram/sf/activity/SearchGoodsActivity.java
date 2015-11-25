@@ -1,14 +1,12 @@
 package com.sf.main.juanpiprogram.sf.activity;
 
 import android.support.v4.app.ActivityCompat;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
-import android.view.Window;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,7 +14,7 @@ import android.widget.TextView;
 import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.exception.DbException;
 import com.sf.main.juanpiprogram.R;
-import com.sf.main.juanpiprogram.sf.utils.DbHelper;
+import com.sf.main.juanpiprogram.sf.utils.DBHelper;
 import com.sf.main.juanpiprogram.sf.entities.SearchHistoryData;
 import com.sf.main.juanpiprogram.sf.fragment.SearchDateFragment;
 import com.sf.main.juanpiprogram.sf.fragment.SearchHistoryFragment;
@@ -51,6 +49,7 @@ public class SearchGoodsActivity extends SwipeBackActivity {
         loadingFirstFragment();
         //对点击搜索进行监听并改变
         onclickSousuoChangeFragment();
+
 
 
     }
@@ -132,7 +131,7 @@ public class SearchGoodsActivity extends SwipeBackActivity {
                 ftransaction.replace(R.id.relativeLayout_search_content, dataFragment);
                 ftransaction.commit();
                 //将输入的数据存入数据库
-                DbUtils utils = DbHelper.getUtils();
+                DbUtils utils = DBHelper.getUtils();
                 // List<SearchHistoryData> list = new ArrayList<SearchHistoryData>();
                 try {
 

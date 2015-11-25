@@ -216,6 +216,7 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
 
                     Intent intent = new Intent(BaseApplication.getContext(), PersonCenterActivity.class);
                     intent.putExtra("userName", userName);
+                    intent.setAction("toUserName");
                     startActivity(intent);
                 }
 

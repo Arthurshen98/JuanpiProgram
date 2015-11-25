@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:bottom="1dp"
+        android:left="1dp"
+        android:right="1dp"
+        android:top="1dp">
+        <shape>
+            <gradient
+                android:angle="90"
+                android:centerColor="@color/juanpi_main"
+                android:startColor="@color/juanpi_main"
+                android:endColor="@color/juanpi_main"
+                />
+
+            <padding
+                android:bottom="2dp"
+                android:left="2dp"
+                android:right="2dp"
+                android:top="2dp" />
+            <!-- 应该是圆角 -->
+            <corners android:radius="6dp" />
+        </shape>
+    </item>
+</layer-list>

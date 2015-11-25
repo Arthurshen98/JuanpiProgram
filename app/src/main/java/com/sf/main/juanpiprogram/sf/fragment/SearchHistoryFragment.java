@@ -17,7 +17,7 @@ import com.lidroid.xutils.exception.DbException;
 import com.sf.main.juanpiprogram.R;
 import com.sf.main.juanpiprogram.sf.adapter.SearchListViewAdapter;
 import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
-import com.sf.main.juanpiprogram.sf.utils.DbHelper;
+import com.sf.main.juanpiprogram.sf.utils.DBHelper;
 import com.sf.main.juanpiprogram.sf.entities.SearchHistoryData;
 
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
  */
 public class SearchHistoryFragment extends Fragment {
 
-    private DbUtils utils = DbHelper.getUtils();
+    private DbUtils utils = DBHelper.getUtils();
     private List<SearchHistoryData> list ;
     private ListView searchListView;
 

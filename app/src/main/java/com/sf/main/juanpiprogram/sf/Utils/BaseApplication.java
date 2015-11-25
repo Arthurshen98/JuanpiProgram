@@ -8,7 +8,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 import cn.bmob.v3.Bmob;
-import cn.smssdk.SMSSDK;
+import cn.sharesdk.framework.ShareSDK;
 
 /**
  * 全局application，为什么要用application，主要是因为这就像一个session，
@@ -44,9 +44,11 @@ public class BaseApplication extends Application {
         super.onCreate();
         context=getApplicationContext();
         //初始化db
-        DbHelper.init(this);
+        DBHelper.init(this);
        //初始化bmob
         Bmob.initialize(this, "412b282b0b8896bf8791d8682843020d");
+        BitmapHelper.init(this);
+        //ShareSDK.initSDK(this);
     }
     //返回Context的对象
     public static Context getContext()

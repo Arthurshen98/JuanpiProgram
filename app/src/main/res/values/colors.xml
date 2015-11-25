@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
 
+    <color name="refresh">#919191</color><!--下拉刷新颜色-->
+    <color name="hui">#999999</color>
     <color name="juanpi_main" >#f8285c</color><!--卷皮主体色-->
     <color name="backgroud">#f2f2f2</color>
     <color name="juanpi_mian_touming">#aaf8285c</color>

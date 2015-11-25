@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/bag_imag"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginLeft="15dp"
+        android:background="@mipmap/ic_launcher"
+        android:scaleType="fitXY"
+        android:layout_marginTop="15dp"/>
+    <TextView
+        android:id="@+id/bag_title"
+        android:textColor="@color/black"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="hello"
+        android:layout_toRightOf="@+id/bag_imag"
+        android:layout_marginLeft="15dp"
+        android:layout_marginTop="18dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textSize="14sp"
+        android:id="@+id/bag_cprice"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:layout_alignTop="@+id/bag_title"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textSize="12sp"
+        android:id="@+id/bag_oprice"
+        android:layout_below="@+id/bag_cprice"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="15dp"
+        android:layout_marginTop="10dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="删除"
+        android:textSize="16sp"
+        android:id="@+id/bag_del"
+        android:layout_below="@+id/bag_oprice"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"/>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="0.6dp"
+        android:layout_below="@+id/bag_del"
+        android:background="@color/hui"
+        android:layout_marginTop="30dp"
+        android:id="@+id/linearLayout" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:id="@+id/bag_total_price"
+        android:layout_below="@+id/linearLayout"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginTop="15dp"
+        android:layout_marginRight="15dp"/>
+
+    <Button
+        android:id="@+id/bag_subtract"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:background="@drawable/bag_subtract_selector"
+        android:layout_below="@+id/bag_oprice"
+        android:layout_toRightOf="@+id/bag_imag"
+        android:layout_marginLeft="10dp"
+        />
+    <Button
+        android:id="@+id/bag_num"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:text="num"
+        android:textColor="@color/hui"
+        android:background="@mipmap/sell_count_bg"
+        android:layout_toRightOf="@+id/bag_subtract"
+        android:layout_alignTop="@+id/bag_subtract"/>
+    <Button
+        android:id="@+id/bag_add"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_toRightOf="@+id/bag_num"
+        android:layout_alignTop="@+id/bag_subtract"
+        android:background="@drawable/bag_add_selector"/>
+
+
+</RelativeLayout>

@@ -184,8 +184,7 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
             case R.id.register_relative_phonefast_login_btn:
                 //登录的时候验证验证码
                 isTureCheckNum();
-                //注册
-                onClickedRegisterToBmob();
+
                 break;
 
             case R.id.register_text_onclick_getcheckNum:
@@ -289,6 +288,10 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
         if (!TextUtils.isEmpty(phoneNum) && !TextUtils.isEmpty(checkNum)) {
             SMSSDK.submitVerificationCode("+86", phoneNum, checkNum);
             register_editText_phone_checkNum.requestFocus();
+
+            //注册
+            onClickedRegisterToBmob();
+
         } else {
             Toast.makeText(BaseApplication.getContext(), "验证码不能为空", Toast.LENGTH_SHORT).show();
             register_editText_phone_checkNum.requestFocus();
@@ -473,6 +476,8 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
                                    
                                     Intent regIntent = new Intent(RegisterActivity.this, PersonCenterActivity.class);
                                     regIntent.putExtra("userName",register_editText_username_login.getText().toString());
+                                    regIntent.setAction("toUserName");
+                                    startActivity(regIntent);
                                 }
 
 

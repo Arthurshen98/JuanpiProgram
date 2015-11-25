@@ -1,0 +1,131 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.sf.main.juanpiprogram.sf.activity.AddressActivity">
+
+
+
+    <RelativeLayout
+        android:id="@+id/address_rela"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        android:background="@color/white"
+        >
+
+        <Button
+            android:id="@+id/address_back"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/back_selector" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:text="添加地址"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:layout_centerInParent="true"
+            android:id="@+id/textView" />
+        <TextView
+            android:id="@+id/address_save"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/hui"
+            android:text="保存"
+            android:textSize="16sp"
+            android:layout_alignBottom="@+id/textView"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:id="@+id/textView29"
+            android:background="@color/personbottomLine"
+            android:layout_alignParentBottom="true"/>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/address_rela"
+        android:layout_marginTop="15dp"
+        android:id="@+id/address_rela1"
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/address_people"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="收货人："/>
+        <EditText
+            android:layout_marginTop="10dp"
+            android:id="@+id/address_et_people"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_toRightOf="@+id/address_people"
+            android:layout_marginLeft="20dp"/>
+        <LinearLayout
+            android:layout_below="@+id/address_people"
+            android:layout_marginTop="15dp"
+            android:id="@+id/address_linear1"
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:background="@color/hui"
+            android:orientation="horizontal"
+            />
+        <TextView
+            android:layout_below="@+id/address_linear1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/address_num"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="手机号码："/>
+        <EditText
+            android:id="@+id/address_et_num"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_alignTop="@+id/address_num"
+            android:layout_alignRight="@+id/address_et_people"
+            android:layout_alignEnd="@+id/address_et_people"
+            android:layout_alignLeft="@+id/address_et_people"
+            android:layout_alignStart="@+id/address_et_people" />
+        <LinearLayout
+            android:layout_below="@+id/address_num"
+            android:layout_marginTop="15dp"
+            android:id="@+id/address_linear2"
+            android:layout_width="match_parent"
+            android:layout_height="0.6dp"
+            android:background="@color/hui"
+            android:orientation="horizontal"
+            />
+        <TextView
+            android:layout_below="@+id/address_linear2"
+            android:layout_marginLeft="10dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/address_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="地址："/>
+        <EditText
+            android:id="@+id/address_et"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@null"
+            android:layout_alignTop="@+id/address_tv"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentEnd="true"
+            android:layout_alignLeft="@+id/address_et_num"
+            android:layout_alignStart="@+id/address_et_num" />
+    </RelativeLayout>
+
+</RelativeLayout>

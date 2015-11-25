@@ -8,7 +8,7 @@ import com.lidroid.xutils.db.annotation.Table;
 /**
  * 用于搜索的历史数据
  */
-@Table(name = "SearchHistoryData", execAfterTableCreated="INSERT INTO SearchHistoryData (id,searchData) VALUES (1,'三只松鼠');")
+@Table(name = "SearchHistoryData"/*, execAfterTableCreated="INSERT INTO SearchHistoryData (id,searchData) VALUES (1,'三只松鼠');"*/)
 public class SearchHistoryData {
     @Id(column = "id")
     private int id;

@@ -9,7 +9,7 @@ import com.lidroid.xutils.DbUtils;
  * Date: 15-11-4
  * Time: 上午10:52
  */
-public class DbHelper {
+public class DBHelper {
     private static DbUtils utils;
     public static void init(Context context){
         utils = DbUtils.create(context);
