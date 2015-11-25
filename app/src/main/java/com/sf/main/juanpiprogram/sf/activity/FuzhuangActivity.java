@@ -18,15 +18,13 @@ public class FuzhuangActivity extends SwipeBackActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_fuzhuang);
 
-
-        setTranslucentStatus();
     }
 
-    private void setTranslucentStatus() {
+    /*private void setTranslucentStatus() {
         mTintManager = new SystemBarTintManager(this);
         mTintManager.setStatusBarTintEnabled(true);
         mTintManager.setNavigationBarTintEnabled(true);  mTintManager.setStatusBarTintResource(R.color.juanpi_main);
-    }
+    }*/
     //返回关闭界面
     public void toFinish(View v) {
         ActivityCompat.finishAfterTransition(this);

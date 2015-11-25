@@ -42,6 +42,7 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
     
     private ImageView register_login_clear_account1,register_login_clear_account2;
     private EditText register_editText_username_login,register_editText_pass_login;
+    private MyProgressBar myProgressBar;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -183,6 +184,8 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
             case R.id.register_relative_phonefast_login_btn:
                 //登录的时候验证验证码
                 isTureCheckNum();
+                //注册
+                onClickedRegisterToBmob();
                 break;
 
             case R.id.register_text_onclick_getcheckNum:
@@ -221,10 +224,6 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
                 break;
             case R.id.register_login_clear_account2:
                 clearaccountinfotwo();
-                break;
-            //点击注册
-            case R.id.relative_phonefast_login_btn:
-                onClickedRegisterToBmob();
                 break;
             //返回
             case R.id.imageView_register_return:
@@ -456,7 +455,7 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
             if (register_editText_username_login.getText().toString().length()>=5) {
                 if (!register_editText_pass_login.getText().toString().equals("")) {
                     if (register_editText_pass_login.getText().toString().length() >= 6) {
-                        if (checkSuccess) {
+                       if (checkSuccess) {
                             MyProgressBar.show(RegisterActivity.this, "正在注册，请稍等……", true, null);
                             User user = new User();
                             user.setUserName(register_editText_username_login.getText().toString());
@@ -484,9 +483,9 @@ public class RegisterActivity extends SwipeBackActivity implements View.OnClickL
                                 }
                             });
                         } else {
-                            Toast.makeText(RegisterActivity.this, "请输入正确的验证码！", Toast.LENGTH_SHORT).show();
+                           Toast.makeText(RegisterActivity.this, "请输入正确的验证码！", Toast.LENGTH_SHORT).show();
 
-                        }
+                       }
 
                     }else {
                         Toast.makeText(RegisterActivity.this, "密码不能少于6位以上的数字或字母！", Toast.LENGTH_SHORT).show();

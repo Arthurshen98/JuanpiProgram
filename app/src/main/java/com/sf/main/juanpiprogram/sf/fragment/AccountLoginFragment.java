@@ -28,6 +28,7 @@ import com.sf.main.juanpiprogram.sf.utils.BaseApplication;
 import com.sf.main.juanpiprogram.sf.utils.MyProgressBar;
 import com.sf.main.juanpiprogram.sf.utils.UserManager;
 
+import cn.bmob.v3.Bmob;
 import cn.bmob.v3.BmobUser;
 import cn.bmob.v3.listener.SaveListener;
 
@@ -71,6 +72,9 @@ public class AccountLoginFragment extends Fragment implements View.OnClickListen
         editText_username_login = (EditText) view.findViewById(R.id.editText_username_login);
 
         editText_pass_login = (EditText) view.findViewById(R.id.editText_pass_login);
+
+        //初始化bmob
+        Bmob.initialize(BaseApplication.getContext(), "412b282b0b8896bf8791d8682843020d");
 
         textchangelistener1();
         textchangelistener2();

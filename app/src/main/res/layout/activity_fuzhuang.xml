@@ -5,7 +5,6 @@
     tools:context="com.sf.main.juanpiprogram.sf.activity.FuzhuangActivity"
     android:background="@color/white"
     android:fitsSystemWindows="true"
-    android:theme="@style/FullBleedTheme"
     android:clipToPadding="false">
     <LinearLayout
         android:orientation="vertical"
@@ -40,4 +39,5 @@
         </RelativeLayout>
 
     </LinearLayout>
+
 </RelativeLayout>

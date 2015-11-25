@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
 
     <color name="juanpi_main" >#f8285c</color><!--卷皮主体色-->
+    <color name="backgroud">#f2f2f2</color>
     <color name="juanpi_mian_touming">#aaf8285c</color>
     <color name="left_menu_bg">#232426</color><!--左菜单背景-->
     <color name="left_menu_search_bg" >#0e0e0e</color><!--搜索背景-->
